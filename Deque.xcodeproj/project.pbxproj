@@ -1,0 +1,393 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BBF294401C6B9ED000367934 /* Deque.h in Headers */ = {isa = PBXBuildFile; fileRef = BBF2943F1C6B9ED000367934 /* Deque.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BBF294471C6B9ED000367934 /* Deque.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBF2943C1C6B9ED000367934 /* Deque.framework */; };
+		BBF2944C1C6B9ED000367934 /* DequeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF2944B1C6B9ED000367934 /* DequeTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BBF294481C6B9ED000367934 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BBF294331C6B9ED000367934 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BBF2943B1C6B9ED000367934;
+			remoteInfo = Deque;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BBF2943C1C6B9ED000367934 /* Deque.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Deque.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BBF2943F1C6B9ED000367934 /* Deque.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Deque.h; sourceTree = "<group>"; };
+		BBF294411C6B9ED000367934 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BBF294461C6B9ED000367934 /* DequeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DequeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BBF2944B1C6B9ED000367934 /* DequeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DequeTests.swift; sourceTree = "<group>"; };
+		BBF2944D1C6B9ED000367934 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BBF294381C6B9ED000367934 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBF294431C6B9ED000367934 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BBF294471C6B9ED000367934 /* Deque.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BBF294321C6B9ED000367934 = {
+			isa = PBXGroup;
+			children = (
+				BBF2943E1C6B9ED000367934 /* Deque */,
+				BBF2944A1C6B9ED000367934 /* DequeTests */,
+				BBF2943D1C6B9ED000367934 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BBF2943D1C6B9ED000367934 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BBF2943C1C6B9ED000367934 /* Deque.framework */,
+				BBF294461C6B9ED000367934 /* DequeTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BBF2943E1C6B9ED000367934 /* Deque */ = {
+			isa = PBXGroup;
+			children = (
+				BBF2943F1C6B9ED000367934 /* Deque.h */,
+				BBF294411C6B9ED000367934 /* Info.plist */,
+			);
+			path = Deque;
+			sourceTree = "<group>";
+		};
+		BBF2944A1C6B9ED000367934 /* DequeTests */ = {
+			isa = PBXGroup;
+			children = (
+				BBF2944B1C6B9ED000367934 /* DequeTests.swift */,
+				BBF2944D1C6B9ED000367934 /* Info.plist */,
+			);
+			path = DequeTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		BBF294391C6B9ED000367934 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BBF294401C6B9ED000367934 /* Deque.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		BBF2943B1C6B9ED000367934 /* Deque */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BBF294501C6B9ED000367934 /* Build configuration list for PBXNativeTarget "Deque" */;
+			buildPhases = (
+				BBF294371C6B9ED000367934 /* Sources */,
+				BBF294381C6B9ED000367934 /* Frameworks */,
+				BBF294391C6B9ED000367934 /* Headers */,
+				BBF2943A1C6B9ED000367934 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Deque;
+			productName = Deque;
+			productReference = BBF2943C1C6B9ED000367934 /* Deque.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		BBF294451C6B9ED000367934 /* DequeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BBF294531C6B9ED000367934 /* Build configuration list for PBXNativeTarget "DequeTests" */;
+			buildPhases = (
+				BBF294421C6B9ED000367934 /* Sources */,
+				BBF294431C6B9ED000367934 /* Frameworks */,
+				BBF294441C6B9ED000367934 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BBF294491C6B9ED000367934 /* PBXTargetDependency */,
+			);
+			name = DequeTests;
+			productName = DequeTests;
+			productReference = BBF294461C6B9ED000367934 /* DequeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BBF294331C6B9ED000367934 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Károly Lőrentey";
+				TargetAttributes = {
+					BBF2943B1C6B9ED000367934 = {
+						CreatedOnToolsVersion = 7.3;
+					};
+					BBF294451C6B9ED000367934 = {
+						CreatedOnToolsVersion = 7.3;
+					};
+				};
+			};
+			buildConfigurationList = BBF294361C6B9ED000367934 /* Build configuration list for PBXProject "Deque" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = BBF294321C6B9ED000367934;
+			productRefGroup = BBF2943D1C6B9ED000367934 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BBF2943B1C6B9ED000367934 /* Deque */,
+				BBF294451C6B9ED000367934 /* DequeTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BBF2943A1C6B9ED000367934 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBF294441C6B9ED000367934 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BBF294371C6B9ED000367934 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBF294421C6B9ED000367934 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BBF2944C1C6B9ED000367934 /* DequeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BBF294491C6B9ED000367934 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BBF2943B1C6B9ED000367934 /* Deque */;
+			targetProxy = BBF294481C6B9ED000367934 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		BBF2944E1C6B9ED000367934 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		BBF2944F1C6B9ED000367934 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		BBF294511C6B9ED000367934 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Deque/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = hu.lorentey.Deque;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		BBF294521C6B9ED000367934 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Deque/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = hu.lorentey.Deque;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		BBF294541C6B9ED000367934 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = DequeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = hu.lorentey.DequeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		BBF294551C6B9ED000367934 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = DequeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = hu.lorentey.DequeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BBF294361C6B9ED000367934 /* Build configuration list for PBXProject "Deque" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BBF2944E1C6B9ED000367934 /* Debug */,
+				BBF2944F1C6B9ED000367934 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BBF294501C6B9ED000367934 /* Build configuration list for PBXNativeTarget "Deque" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BBF294511C6B9ED000367934 /* Debug */,
+				BBF294521C6B9ED000367934 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		BBF294531C6B9ED000367934 /* Build configuration list for PBXNativeTarget "DequeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BBF294541C6B9ED000367934 /* Debug */,
+				BBF294551C6B9ED000367934 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BBF294331C6B9ED000367934 /* Project object */;
+}
