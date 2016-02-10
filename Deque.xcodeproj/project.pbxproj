@@ -7,9 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BBF294401C6B9ED000367934 /* Deque.h in Headers */ = {isa = PBXBuildFile; fileRef = BBF2943F1C6B9ED000367934 /* Deque.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BBF294471C6B9ED000367934 /* Deque.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBF2943C1C6B9ED000367934 /* Deque.framework */; };
 		BBF2944C1C6B9ED000367934 /* DequeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF2944B1C6B9ED000367934 /* DequeTests.swift */; };
+		BBF294571C6BA00600367934 /* Deque.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF294561C6BA00600367934 /* Deque.swift */; };
+		BBF294671C6BA0B600367934 /* Deque.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBF2945D1C6BA0B600367934 /* Deque.framework */; };
+		BBF294741C6BA19E00367934 /* Deque.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF294561C6BA00600367934 /* Deque.swift */; };
+		BBF294751C6BA1A200367934 /* DequeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF2944B1C6B9ED000367934 /* DequeTests.swift */; };
+		BBF2949F1C6BB4FB00367934 /* Deque.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBF294951C6BB4FB00367934 /* Deque.framework */; };
+		BBF294AC1C6BB5BA00367934 /* Deque.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF294561C6BA00600367934 /* Deque.swift */; };
+		BBF294AD1C6BB5BA00367934 /* Deque.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF294561C6BA00600367934 /* Deque.swift */; };
+		BBF294AE1C6BB5BE00367934 /* DequeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF2944B1C6B9ED000367934 /* DequeTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -20,15 +27,39 @@
 			remoteGlobalIDString = BBF2943B1C6B9ED000367934;
 			remoteInfo = Deque;
 		};
+		BBF294681C6BA0B600367934 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BBF294331C6B9ED000367934 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BBF2945C1C6BA0B600367934;
+			remoteInfo = Deque;
+		};
+		BBF294A01C6BB4FB00367934 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BBF294331C6B9ED000367934 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BBF294941C6BB4FB00367934;
+			remoteInfo = Deque;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		BBF2943C1C6B9ED000367934 /* Deque.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Deque.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BBF2943F1C6B9ED000367934 /* Deque.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Deque.h; sourceTree = "<group>"; };
 		BBF294411C6B9ED000367934 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BBF294461C6B9ED000367934 /* DequeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DequeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BBF294461C6B9ED000367934 /* DequeTests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DequeTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBF2944B1C6B9ED000367934 /* DequeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DequeTests.swift; sourceTree = "<group>"; };
 		BBF2944D1C6B9ED000367934 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BBF294561C6BA00600367934 /* Deque.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deque.swift; sourceTree = "<group>"; };
+		BBF2945D1C6BA0B600367934 /* Deque.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Deque.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BBF294661C6BA0B600367934 /* DequeTests-Mac.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DequeTests-Mac.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BBF294881C6BB4C900367934 /* Deque.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Deque.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BBF294951C6BB4FB00367934 /* Deque.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Deque.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BBF2949E1C6BB4FB00367934 /* DequeTests-tvOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DequeTests-tvOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BBF294AF1C6BB69500367934 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		BBF294B01C6BB6C600367934 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		BBF294B11C6BB8B200367934 /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
+		BBF294B21C6BB91000367934 /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
+		BBF294B31C6BB94E00367934 /* Deque.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = Deque.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,14 +78,56 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BBF294591C6BA0B600367934 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBF294631C6BA0B600367934 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BBF294671C6BA0B600367934 /* Deque.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBF294841C6BB4C900367934 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBF294911C6BB4FB00367934 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBF2949B1C6BB4FB00367934 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BBF2949F1C6BB4FB00367934 /* Deque.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		BBF294321C6B9ED000367934 = {
 			isa = PBXGroup;
 			children = (
-				BBF2943E1C6B9ED000367934 /* Deque */,
-				BBF2944A1C6B9ED000367934 /* DequeTests */,
+				BBF294B01C6BB6C600367934 /* README.md */,
+				BBF294B21C6BB91000367934 /* LICENSE.md */,
+				BBF294B11C6BB8B200367934 /* .travis.yml */,
+				BBF294B31C6BB94E00367934 /* Deque.podspec */,
+				BBF294AF1C6BB69500367934 /* Package.swift */,
+				BBF2943E1C6B9ED000367934 /* Sources */,
+				BBF2944A1C6B9ED000367934 /* Tests */,
 				BBF2943D1C6B9ED000367934 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -63,27 +136,32 @@
 			isa = PBXGroup;
 			children = (
 				BBF2943C1C6B9ED000367934 /* Deque.framework */,
-				BBF294461C6B9ED000367934 /* DequeTests.xctest */,
+				BBF294461C6B9ED000367934 /* DequeTests-iOS.xctest */,
+				BBF2945D1C6BA0B600367934 /* Deque.framework */,
+				BBF294661C6BA0B600367934 /* DequeTests-Mac.xctest */,
+				BBF294881C6BB4C900367934 /* Deque.framework */,
+				BBF294951C6BB4FB00367934 /* Deque.framework */,
+				BBF2949E1C6BB4FB00367934 /* DequeTests-tvOS.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		BBF2943E1C6B9ED000367934 /* Deque */ = {
+		BBF2943E1C6B9ED000367934 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				BBF2943F1C6B9ED000367934 /* Deque.h */,
+				BBF294561C6BA00600367934 /* Deque.swift */,
 				BBF294411C6B9ED000367934 /* Info.plist */,
 			);
-			path = Deque;
+			path = Sources;
 			sourceTree = "<group>";
 		};
-		BBF2944A1C6B9ED000367934 /* DequeTests */ = {
+		BBF2944A1C6B9ED000367934 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				BBF2944B1C6B9ED000367934 /* DequeTests.swift */,
 				BBF2944D1C6B9ED000367934 /* Info.plist */,
 			);
-			path = DequeTests;
+			path = Tests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -93,16 +171,36 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BBF294401C6B9ED000367934 /* Deque.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBF2945A1C6BA0B600367934 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBF294851C6BB4C900367934 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBF294921C6BB4FB00367934 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		BBF2943B1C6B9ED000367934 /* Deque */ = {
+		BBF2943B1C6B9ED000367934 /* Deque-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BBF294501C6B9ED000367934 /* Build configuration list for PBXNativeTarget "Deque" */;
+			buildConfigurationList = BBF294501C6B9ED000367934 /* Build configuration list for PBXNativeTarget "Deque-iOS" */;
 			buildPhases = (
 				BBF294371C6B9ED000367934 /* Sources */,
 				BBF294381C6B9ED000367934 /* Frameworks */,
@@ -113,14 +211,14 @@
 			);
 			dependencies = (
 			);
-			name = Deque;
+			name = "Deque-iOS";
 			productName = Deque;
 			productReference = BBF2943C1C6B9ED000367934 /* Deque.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		BBF294451C6B9ED000367934 /* DequeTests */ = {
+		BBF294451C6B9ED000367934 /* DequeTests-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BBF294531C6B9ED000367934 /* Build configuration list for PBXNativeTarget "DequeTests" */;
+			buildConfigurationList = BBF294531C6B9ED000367934 /* Build configuration list for PBXNativeTarget "DequeTests-iOS" */;
 			buildPhases = (
 				BBF294421C6B9ED000367934 /* Sources */,
 				BBF294431C6B9ED000367934 /* Frameworks */,
@@ -131,9 +229,99 @@
 			dependencies = (
 				BBF294491C6B9ED000367934 /* PBXTargetDependency */,
 			);
-			name = DequeTests;
+			name = "DequeTests-iOS";
 			productName = DequeTests;
-			productReference = BBF294461C6B9ED000367934 /* DequeTests.xctest */;
+			productReference = BBF294461C6B9ED000367934 /* DequeTests-iOS.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BBF2945C1C6BA0B600367934 /* Deque-Mac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BBF2946E1C6BA0B600367934 /* Build configuration list for PBXNativeTarget "Deque-Mac" */;
+			buildPhases = (
+				BBF294581C6BA0B600367934 /* Sources */,
+				BBF294591C6BA0B600367934 /* Frameworks */,
+				BBF2945A1C6BA0B600367934 /* Headers */,
+				BBF2945B1C6BA0B600367934 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Deque-Mac";
+			productName = Deque;
+			productReference = BBF2945D1C6BA0B600367934 /* Deque.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		BBF294651C6BA0B600367934 /* DequeTests-Mac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BBF294711C6BA0B600367934 /* Build configuration list for PBXNativeTarget "DequeTests-Mac" */;
+			buildPhases = (
+				BBF294621C6BA0B600367934 /* Sources */,
+				BBF294631C6BA0B600367934 /* Frameworks */,
+				BBF294641C6BA0B600367934 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BBF294691C6BA0B600367934 /* PBXTargetDependency */,
+			);
+			name = "DequeTests-Mac";
+			productName = DequeTests;
+			productReference = BBF294661C6BA0B600367934 /* DequeTests-Mac.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BBF294871C6BB4C900367934 /* Deque-watchOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BBF2948D1C6BB4C900367934 /* Build configuration list for PBXNativeTarget "Deque-watchOS" */;
+			buildPhases = (
+				BBF294831C6BB4C900367934 /* Sources */,
+				BBF294841C6BB4C900367934 /* Frameworks */,
+				BBF294851C6BB4C900367934 /* Headers */,
+				BBF294861C6BB4C900367934 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Deque-watchOS";
+			productName = Deque;
+			productReference = BBF294881C6BB4C900367934 /* Deque.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		BBF294941C6BB4FB00367934 /* Deque-tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BBF294A61C6BB4FB00367934 /* Build configuration list for PBXNativeTarget "Deque-tvOS" */;
+			buildPhases = (
+				BBF294901C6BB4FB00367934 /* Sources */,
+				BBF294911C6BB4FB00367934 /* Frameworks */,
+				BBF294921C6BB4FB00367934 /* Headers */,
+				BBF294931C6BB4FB00367934 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Deque-tvOS";
+			productName = Deque;
+			productReference = BBF294951C6BB4FB00367934 /* Deque.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		BBF2949D1C6BB4FB00367934 /* DequeTests-tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BBF294A91C6BB4FB00367934 /* Build configuration list for PBXNativeTarget "DequeTests-tvOS" */;
+			buildPhases = (
+				BBF2949A1C6BB4FB00367934 /* Sources */,
+				BBF2949B1C6BB4FB00367934 /* Frameworks */,
+				BBF2949C1C6BB4FB00367934 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BBF294A11C6BB4FB00367934 /* PBXTargetDependency */,
+			);
+			name = "DequeTests-tvOS";
+			productName = DequeTests;
+			productReference = BBF2949E1C6BB4FB00367934 /* DequeTests-tvOS.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -152,6 +340,21 @@
 					BBF294451C6B9ED000367934 = {
 						CreatedOnToolsVersion = 7.3;
 					};
+					BBF2945C1C6BA0B600367934 = {
+						CreatedOnToolsVersion = 7.3;
+					};
+					BBF294651C6BA0B600367934 = {
+						CreatedOnToolsVersion = 7.3;
+					};
+					BBF294871C6BB4C900367934 = {
+						CreatedOnToolsVersion = 7.3;
+					};
+					BBF294941C6BB4FB00367934 = {
+						CreatedOnToolsVersion = 7.3;
+					};
+					BBF2949D1C6BB4FB00367934 = {
+						CreatedOnToolsVersion = 7.3;
+					};
 				};
 			};
 			buildConfigurationList = BBF294361C6B9ED000367934 /* Build configuration list for PBXProject "Deque" */;
@@ -166,8 +369,13 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BBF2943B1C6B9ED000367934 /* Deque */,
-				BBF294451C6B9ED000367934 /* DequeTests */,
+				BBF2943B1C6B9ED000367934 /* Deque-iOS */,
+				BBF2945C1C6BA0B600367934 /* Deque-Mac */,
+				BBF294871C6BB4C900367934 /* Deque-watchOS */,
+				BBF294941C6BB4FB00367934 /* Deque-tvOS */,
+				BBF294451C6B9ED000367934 /* DequeTests-iOS */,
+				BBF294651C6BA0B600367934 /* DequeTests-Mac */,
+				BBF2949D1C6BB4FB00367934 /* DequeTests-tvOS */,
 			);
 		};
 /* End PBXProject section */
@@ -187,6 +395,41 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BBF2945B1C6BA0B600367934 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBF294641C6BA0B600367934 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBF294861C6BB4C900367934 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBF294931C6BB4FB00367934 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBF2949C1C6BB4FB00367934 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -194,6 +437,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBF294571C6BA00600367934 /* Deque.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,13 +449,63 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BBF294581C6BA0B600367934 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BBF294741C6BA19E00367934 /* Deque.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBF294621C6BA0B600367934 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BBF294751C6BA1A200367934 /* DequeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBF294831C6BB4C900367934 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BBF294AC1C6BB5BA00367934 /* Deque.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBF294901C6BB4FB00367934 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BBF294AD1C6BB5BA00367934 /* Deque.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBF2949A1C6BB4FB00367934 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BBF294AE1C6BB5BE00367934 /* DequeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
 		BBF294491C6B9ED000367934 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = BBF2943B1C6B9ED000367934 /* Deque */;
+			target = BBF2943B1C6B9ED000367934 /* Deque-iOS */;
 			targetProxy = BBF294481C6B9ED000367934 /* PBXContainerItemProxy */;
+		};
+		BBF294691C6BA0B600367934 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BBF2945C1C6BA0B600367934 /* Deque-Mac */;
+			targetProxy = BBF294681C6BA0B600367934 /* PBXContainerItemProxy */;
+		};
+		BBF294A11C6BB4FB00367934 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BBF294941C6BB4FB00367934 /* Deque-tvOS */;
+			targetProxy = BBF294A01C6BB4FB00367934 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -236,7 +530,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 100;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -254,13 +548,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
+				VERSIONING_SYSTEM = "";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
@@ -285,7 +579,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 100;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -297,12 +591,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
+				VERSIONING_SYSTEM = "";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
@@ -310,39 +604,46 @@
 		BBF294511C6B9ED000367934 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Deque/Info.plist;
+				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = hu.lorentey.Deque;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = hu.lorentey.Deque.iOS;
+				PRODUCT_NAME = Deque;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		BBF294521C6B9ED000367934 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Deque/Info.plist;
+				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = hu.lorentey.Deque;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = hu.lorentey.Deque.iOS;
+				PRODUCT_NAME = Deque;
 				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
 		BBF294541C6B9ED000367934 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = DequeTests/Info.plist;
+				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = hu.lorentey.DequeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -352,10 +653,184 @@
 		BBF294551C6B9ED000367934 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = DequeTests/Info.plist;
+				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = hu.lorentey.DequeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		BBF2946F1C6BA0B600367934 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = Sources/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_BUNDLE_IDENTIFIER = hu.lorentey.Deque.Mac;
+				PRODUCT_NAME = Deque;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		BBF294701C6BA0B600367934 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = Sources/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_BUNDLE_IDENTIFIER = hu.lorentey.Deque.Mac;
+				PRODUCT_NAME = Deque;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		BBF294721C6BA0B600367934 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = hu.lorentey.DequeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		BBF294731C6BA0B600367934 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = hu.lorentey.DequeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		BBF2948E1C6BB4C900367934 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Sources/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "hu.lorentey.Deque-watchOS";
+				PRODUCT_NAME = Deque;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		BBF2948F1C6BB4C900367934 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Sources/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "hu.lorentey.Deque-watchOS";
+				PRODUCT_NAME = Deque;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		BBF294A71C6BB4FB00367934 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Sources/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = hu.lorentey.Deque;
+				PRODUCT_NAME = Deque;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Debug;
+		};
+		BBF294A81C6BB4FB00367934 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Sources/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = hu.lorentey.Deque;
+				PRODUCT_NAME = Deque;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Release;
+		};
+		BBF294AA1C6BB4FB00367934 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = hu.lorentey.DequeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Debug;
+		};
+		BBF294AB1C6BB4FB00367934 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = hu.lorentey.DequeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Release;
 		};
@@ -371,21 +846,68 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BBF294501C6B9ED000367934 /* Build configuration list for PBXNativeTarget "Deque" */ = {
+		BBF294501C6B9ED000367934 /* Build configuration list for PBXNativeTarget "Deque-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BBF294511C6B9ED000367934 /* Debug */,
 				BBF294521C6B9ED000367934 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
-		BBF294531C6B9ED000367934 /* Build configuration list for PBXNativeTarget "DequeTests" */ = {
+		BBF294531C6B9ED000367934 /* Build configuration list for PBXNativeTarget "DequeTests-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BBF294541C6B9ED000367934 /* Debug */,
 				BBF294551C6B9ED000367934 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BBF2946E1C6BA0B600367934 /* Build configuration list for PBXNativeTarget "Deque-Mac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BBF2946F1C6BA0B600367934 /* Debug */,
+				BBF294701C6BA0B600367934 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BBF294711C6BA0B600367934 /* Build configuration list for PBXNativeTarget "DequeTests-Mac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BBF294721C6BA0B600367934 /* Debug */,
+				BBF294731C6BA0B600367934 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BBF2948D1C6BB4C900367934 /* Build configuration list for PBXNativeTarget "Deque-watchOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BBF2948E1C6BB4C900367934 /* Debug */,
+				BBF2948F1C6BB4C900367934 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BBF294A61C6BB4FB00367934 /* Build configuration list for PBXNativeTarget "Deque-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BBF294A71C6BB4FB00367934 /* Debug */,
+				BBF294A81C6BB4FB00367934 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BBF294A91C6BB4FB00367934 /* Build configuration list for PBXNativeTarget "DequeTests-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BBF294AA1C6BB4FB00367934 /* Debug */,
+				BBF294AB1C6BB4FB00367934 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
