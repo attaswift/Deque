@@ -1,7 +1,14 @@
 # A Double-Ended Queue Type in Swift
 
+[![Swift 2.2](https://img.shields.io/badge/Swift-2.2-blue.svg)](https://swift.org) 
+[![License](https://img.shields.io/badge/licence-MIT-blue.svg)](https://github.com/lorentey/BTree/blob/master/LICENCE.md)
+[![Platform](https://img.shields.io/badge/platforms-OS_X%20∙%20iOS%20∙%20watchOS%20∙%20tvOS-blue.svg)](https://developer.apple.com/platforms/)
+
 [![Build Status](https://travis-ci.org/lorentey/Deque.svg?branch=master)](https://travis-ci.org/lorentey/Deque)
 [![codecov.io](https://codecov.io/github/lorentey/Deque/coverage.svg?branch=master)](https://codecov.io/github/lorentey/Deque?branch=master)
+
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg)](https://github.com/Carthage/Carthage)
+[![CocoaPod Version](https://img.shields.io/cocoapods/v/Deque.svg)](http://cocoapods.org/pods/Deque)
 
 
 `Deque<Element>` implements a double-ended queue type.
