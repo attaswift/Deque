@@ -11,7 +11,7 @@ import XCTest
 
 func cast<Source, Target>(value: Source) -> Target { return value as! Target }
 
-func XCTAssertElementsEqual<Element: Equatable, S: SequenceType where S.Generator.Element == Element>(a: S, _ b: [Element], file: StaticString = __FILE__, line: UInt = __LINE__) {
+func XCTAssertElementsEqual<Element: Equatable, S: SequenceType where S.Generator.Element == Element>(a: S, _ b: [Element], file: StaticString = #file, line: UInt = #line) {
     let aa = Array(a)
     if !aa.elementsEqual(b) {
         XCTFail("XCTAssertEqual failed: \"\(aa)\" is not equal to \"\(b)\"", file: cast(file), line: line)
@@ -207,7 +207,7 @@ class DequeTests: XCTestCase {
         // Add a sequence with inexact underestimateCount()
         var i = 101
         deque.appendContentsOf(AnySequence<T> {
-            anyGenerator {
+            AnyGenerator {
                 if i > 1000 {
                     return nil
                 }
@@ -452,7 +452,7 @@ class DequeTests: XCTestCase {
     }
 
     func testInsertionCases() {
-        func testInsert(elements elements: [T], wrappedAt wrap: Int, insertionIndex: Int, insertedElements: [T], file: StaticString = __FILE__, line: UInt = __LINE__) {
+        func testInsert(elements elements: [T], wrappedAt wrap: Int, insertionIndex: Int, insertedElements: [T], file: StaticString = #file, line: UInt = #line) {
             var deque = dequeWithElements(elements, wrappedAt: wrap)
             var expected = elements
             expected.insertContentsOf(insertedElements, at: insertionIndex)
@@ -476,7 +476,7 @@ class DequeTests: XCTestCase {
 
 
     func testRemovalCases() {
-        func testRemove(elements elements: [T], wrappedAt wrap: Int, range: Range<Int>, file: StaticString = __FILE__, line: UInt = __LINE__) {
+        func testRemove(elements elements: [T], wrappedAt wrap: Int, range: Range<Int>, file: StaticString = #file, line: UInt = #line) {
             var deque = dequeWithElements(elements, wrappedAt: wrap)
             var expected = elements
             expected.removeRange(range)
