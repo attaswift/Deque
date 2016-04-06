@@ -1,6 +1,6 @@
 # A Double-Ended Queue Type in Swift
 
-[![Swift 2.2](https://img.shields.io/badge/Swift-2.2-blue.svg)](https://swift.org) 
+[![Swift 2.2 & 3](https://img.shields.io/badge/Swift-2.2, 3-blue.svg)](https://swift.org) 
 [![License](https://img.shields.io/badge/licence-MIT-blue.svg)](https://github.com/lorentey/BTree/blob/master/LICENCE.md)
 [![Platform](https://img.shields.io/badge/platforms-OS_X%20∙%20iOS%20∙%20watchOS%20∙%20tvOS-blue.svg)](https://developer.apple.com/platforms/)
 
@@ -16,6 +16,11 @@ It's an `Array`-like random-access collection of arbitrary elements that provide
 
 Deques are structs and implement the same copy-on-write value semantics as standard collection types like 
 `Array` and `Dictionary`.
+
+## Compatibility
+
+`Deque` on the `master` branch is compatible with Swift 2.2.
+Preliminary support for prerelease versions of Swift 3 is available on the `swift3` branch.
 
 ## Note on Performance
 
