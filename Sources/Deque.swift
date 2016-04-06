@@ -17,7 +17,7 @@
 public struct Deque<Element> {
     /// The storage for this deque.
     internal private(set) var buffer: DequeBuffer<Element>
-    
+
     /// Initializes an empty deque.
     public init() {
         buffer = DequeBuffer()
@@ -26,13 +26,13 @@ public struct Deque<Element> {
     public init(minimumCapacity: Int) {
         buffer = DequeBuffer(capacity: minimumCapacity)
     }
-    
+
     /// Initialize a new deque from the elements of any sequence.
     public init<S: Sequence where S.Iterator.Element == Element>(_ elements: S) {
         self.init(minimumCapacity: elements.underestimatedCount)
         appendContentsOf(elements)
     }
-    
+
     /// Initialize a deque of `count` elements, each initialized to `repeating`.
     public init(count: Int, repeating: Element) {
         buffer = DequeBuffer(count: count, repeating: repeating)
@@ -44,12 +44,12 @@ public struct Deque<Element> {
 extension Deque {
     /// The maximum number of items this deque can store without reallocating its storage.
     var capacity: Int { return buffer.capacity }
-    
+
     private func grow(capacity: Int) -> Int {
         guard capacity > self.capacity else { return self.capacity }
         return Swift.max(capacity, 2 * self.capacity)
     }
-    
+
     /// Ensure that this deque is capable of storing at least `minimumCapacity` items without reallocating its storage.
     public mutating func reserveCapacity(minimumCapacity: Int) {
         guard buffer.capacity < minimumCapacity else { return }
@@ -62,13 +62,13 @@ extension Deque {
             buffer = new
         }
     }
-    
+
     internal var isUnique: Bool { mutating get { return isUniquelyReferenced(&buffer) } }
-    
+
     private mutating func makeUnique() {
         self.makeUniqueWithCapacity(buffer.capacity)
     }
-    
+
     private mutating func makeUniqueWithCapacity(capacity: Int) {
         guard !isUnique || buffer.capacity < capacity else { return }
         let copy = DequeBuffer<Element>(capacity: capacity)
@@ -83,22 +83,22 @@ extension Deque: MutableCollection {
     public typealias Index = Int
     public typealias Generator = IndexingIterator<Deque<Element>>
     public typealias SubSequence = MutableSlice<Deque<Element>>
-    
+
     /// The number of elements currently stored in this deque.
     public var count: Int { return buffer.count }
     /// The position of the first element in a non-empty deque (this is always zero).
     public var startIndex: Int { return 0 }
     /// The index after the last element in a non-empty deque (this is always the element count).
     public var endIndex: Int { return count }
-    
+
     /// `true` iff this deque is empty.
     public var isEmpty: Bool { return count == 0 }
-    
+
     @inline(__always)
     private func checkSubscript(index: Int) {
         precondition(index >= 0 && index < count)
     }
-    
+
     // Returns or changes the element at `index`.
     public subscript(index: Int) -> Element {
         get {
@@ -144,7 +144,7 @@ extension Deque: CustomStringConvertible, CustomDebugStringConvertible {
         result += debug ? "])" : "]"
         return result
     }
-    
+
     public var description: String {
         return makeDescription(debug: false)
     }
@@ -175,7 +175,7 @@ extension Deque: RangeReplaceableCollection {
             buffer = b
         }
     }
-    
+
     /// Append `newElement` to the end of this deque.
     ///
     /// - Complexity: Amortized O(1) if storage isn't shared with another live deque; otherwise O(`count`).
@@ -183,7 +183,7 @@ extension Deque: RangeReplaceableCollection {
         makeUniqueWithCapacity(grow(count + 1))
         buffer.append(newElement)
     }
-    
+
     /// Append `newElements` to the end of this queue.
     public mutating func appendContentsOf<S: Sequence where S.Iterator.Element == Element>(newElements: S) {
         makeUniqueWithCapacity(self.count + newElements.underestimatedCount)
@@ -208,7 +208,7 @@ extension Deque: RangeReplaceableCollection {
             buffer.count = count
         }
     }
-    
+
     /// Insert `newElement` at index `i` into this deque.
     ///
     /// - Complexity: O(`count`). Note though that complexity is O(1) if `i` is of a constant distance from the front or end of the deque.
@@ -216,7 +216,7 @@ extension Deque: RangeReplaceableCollection {
         makeUniqueWithCapacity(grow(count + 1))
         buffer.insert(newElement, at: i)
     }
-    
+
     /// Insert the contents of `newElements` into this deque, starting at index `i`.
     ///
     /// - Complexity: O(`count`). Note though that complexity is O(1) if `i` is of a constant distance from the front or end of the deque.
@@ -224,7 +224,7 @@ extension Deque: RangeReplaceableCollection {
         makeUniqueWithCapacity(grow(count + numericCast(newElements.count)))
         buffer.insertContentsOf(newElements, at: i)
     }
-    
+
     /// Remove the element at index `i` from this deque.
     ///
     /// - Complexity: O(`count`). Note though that complexity is O(1) if `i` is of a constant distance from the front or end of the deque.
@@ -235,7 +235,7 @@ extension Deque: RangeReplaceableCollection {
         buffer.removeRange(i...i)
         return element
     }
-    
+
     /// Remove and return the first element from this deque.
     ///
     /// - Requires: `count > 0`
@@ -244,7 +244,7 @@ extension Deque: RangeReplaceableCollection {
         precondition(count > 0)
         return buffer.popFirst()!
     }
-    
+
     /// Remove the first `n` elements from this deque.
     ///
     /// - Requires: `count >= n`
@@ -253,7 +253,7 @@ extension Deque: RangeReplaceableCollection {
         precondition(count >= n)
         buffer.removeRange(0 ..< n)
     }
-    
+
     /// Remove the first `n` elements from this deque.
     ///
     /// - Requires: `count >= n`
@@ -262,7 +262,7 @@ extension Deque: RangeReplaceableCollection {
         precondition(range.startIndex >= 0 && range.endIndex <= count)
         buffer.removeRange(range)
     }
-    
+
     /// Remove all elements from this deque.
     ///
     /// - Complexity: O(`count`).
@@ -286,7 +286,7 @@ extension Deque {
         precondition(count > 0)
         return buffer.popLast()!
     }
-    
+
     /// Remove and return the last `n` elements from this deque.
     ///
     /// - Requires: `count >= n`
@@ -296,21 +296,21 @@ extension Deque {
         precondition(c >= n)
         buffer.removeRange(c - n ..< c)
     }
-    
+
     /// Remove and return the first element if the deque isn't empty; otherwise return nil.
     ///
     /// - Complexity: O(1) if storage isn't shared with another live deque; otherwise O(`count`).
     public mutating func popFirst() -> Element? {
         return buffer.popFirst()
     }
-    
+
     /// Remove and return the last element if the deque isn't empty; otherwise return nil.
     ///
     /// - Complexity: O(1) if storage isn't shared with another live deque; otherwise O(`count`).
     public mutating func popLast() -> Element? {
         return buffer.popLast()
     }
-    
+
     /// Prepend `newElement` to the front of this deque.
     ///
     /// - Complexity: Amortized O(1) if storage isn't shared with another live deque; otherwise O(count).
@@ -327,7 +327,7 @@ func == <Element: Equatable>(a: Deque<Element>, b: Deque<Element>) -> Bool {
     let count = a.count
     if count != b.count { return false }
     if count == 0 || a.buffer === b.buffer { return true }
-    
+
     var agen = a.makeIterator()
     var bgen = b.makeIterator()
     while let anext = agen.next() {
@@ -354,7 +354,7 @@ final class DequeBuffer<Element>: NonObjectiveCBase {
     internal private(set) var count: Int
     /// The index of the first item.
     internal private(set) var start: Int
-    
+
     internal init(capacity: Int = 16) {
         // TODO: It would be nicer if element storage was tail-allocated after this instance.
         // ManagedBuffer is supposed to do that, but ManagedBuffer is surprisingly slow. :-/
@@ -363,7 +363,7 @@ final class DequeBuffer<Element>: NonObjectiveCBase {
         self.count = 0
         self.start = 0
     }
-    
+
     internal convenience init(count: Int, repeating: Element) {
         self.init(capacity: count)
         let p = elements
@@ -375,7 +375,7 @@ final class DequeBuffer<Element>: NonObjectiveCBase {
             q += 1
         }
     }
-    
+
     deinit {
         let p = self.elements
         if start + count <= capacity {
@@ -388,7 +388,7 @@ final class DequeBuffer<Element>: NonObjectiveCBase {
         }
         p.deallocateCapacity(capacity)
     }
-    
+
     @warn_unused_result
     internal func realloc(capacity: Int) -> DequeBuffer {
         if capacity <= self.capacity { return self }
@@ -407,15 +407,15 @@ final class DequeBuffer<Element>: NonObjectiveCBase {
         self.count = 0
         return buffer
     }
-    
-    
+
+
     /// Returns the storage buffer index for a deque index.
     internal func bufferIndexForDequeIndex(index: Int) -> Int {
         let i = start + index
         if i >= capacity { return i - capacity }
         return i
     }
-    
+
     /// Returns the deque index for a storage buffer index.
     internal func dequeIndexForBufferIndex(i: Int) -> Int {
         if i >= start {
@@ -423,9 +423,9 @@ final class DequeBuffer<Element>: NonObjectiveCBase {
         }
         return capacity - start + i
     }
-    
+
     internal var isFull: Bool { return count == capacity }
-    
+
     internal subscript(index: Int) -> Element {
         get {
             assert(index >= 0 && index < count)
@@ -438,7 +438,7 @@ final class DequeBuffer<Element>: NonObjectiveCBase {
             elements.advanced(by: i).pointee = newValue
         }
     }
-    
+
     internal func prepend(element: Element) {
         precondition(count < capacity)
         let i = start == 0 ? capacity - 1 : start - 1
@@ -446,7 +446,7 @@ final class DequeBuffer<Element>: NonObjectiveCBase {
         self.start = i
         self.count += 1
     }
-    
+
     internal func popFirst() -> Element? {
         guard count > 0 else { return nil }
         let first = elements.advanced(by: start).move()
@@ -454,14 +454,14 @@ final class DequeBuffer<Element>: NonObjectiveCBase {
         self.count -= 1
         return first
     }
-    
+
     internal func append(element: Element) {
         precondition(count < capacity)
         let endIndex = bufferIndexForDequeIndex(count)
         elements.advanced(by: endIndex).initialize(with: element)
         self.count += 1
     }
-    
+
     internal func popLast() -> Element? {
         guard count > 0 else { return nil }
         let lastIndex = bufferIndexForDequeIndex(count - 1)
@@ -469,7 +469,7 @@ final class DequeBuffer<Element>: NonObjectiveCBase {
         self.count -= 1
         return last
     }
-    
+
     /// Create a gap of `length` uninitialized slots starting at `index`.
     /// Existing elements are moved out of the way.
     /// You are expected to fill the gap by initializing all slots in it after calling this method.
@@ -564,18 +564,18 @@ final class DequeBuffer<Element>: NonObjectiveCBase {
             count += length
         }
     }
-    
+
     internal func insert(element: Element, at index: Int) {
         precondition(index >= 0 && index <= count && !isFull)
         openGapAt(index, length: 1)
         let i = bufferIndexForDequeIndex(index)
         elements.advanced(by: i).initialize(with: element)
     }
-    
+
     internal func insertContentsOf(buffer: DequeBuffer, at index: Int) {
         self.insertContentsOf(buffer, subRange: 0 ..< buffer.count, at: index)
     }
-    
+
     internal func insertContentsOf(buffer: DequeBuffer, subRange: Range<Int>, at index: Int) {
         assert(buffer !== self)
         assert(index >= 0 && index <= count)
@@ -583,18 +583,18 @@ final class DequeBuffer<Element>: NonObjectiveCBase {
         assert(subRange.startIndex >= 0 && subRange.endIndex <= buffer.count)
         guard subRange.count > 0 else { return }
         openGapAt(index, length: subRange.count)
-        
+
         let dp = self.elements
         let sp = buffer.elements
-        
+
         let dstStart = self.bufferIndexForDequeIndex(index)
         let srcStart = buffer.bufferIndexForDequeIndex(subRange.startIndex)
-        
+
         let srcCount = subRange.count
-        
+
         let dstEnd = self.bufferIndexForDequeIndex(index + srcCount)
         let srcEnd = buffer.bufferIndexForDequeIndex(subRange.endIndex)
-        
+
         if srcStart < srcEnd && dstStart < dstEnd {
             dp.advanced(by: dstStart).initializeFrom(sp.advanced(by: srcStart), count: srcCount)
         }
@@ -611,7 +611,7 @@ final class DequeBuffer<Element>: NonObjectiveCBase {
         else {
             let st = buffer.capacity - srcStart
             let dt = self.capacity - dstStart
-            
+
             if dt < st {
                 dp.advanced(by: dstStart).initializeFrom(sp.advanced(by: srcStart), count: dt)
                 dp.initializeFrom(sp.advanced(by: srcStart + dt), count: st - dt)
@@ -628,7 +628,7 @@ final class DequeBuffer<Element>: NonObjectiveCBase {
             }
         }
     }
-    
+
     internal func insertContentsOf<C: Collection where C.Iterator.Element == Element>(collection: C, at index: Int) {
         assert(index >= 0 && index <= count)
         let c: Int = numericCast(collection.count)
@@ -645,7 +645,7 @@ final class DequeBuffer<Element>: NonObjectiveCBase {
             }
         }
     }
-    
+
     /// Destroy elements in the range (index ..< index + count) and collapse the gap by moving remaining elements.
     /// Note that all previously calculated buffer indexes are invalidated by this method.
     private func removeRange(range: Range<Int>) {
@@ -656,7 +656,7 @@ final class DequeBuffer<Element>: NonObjectiveCBase {
         let p = elements
         let i = bufferIndexForDequeIndex(range.startIndex)
         let j = i + rc <= capacity ? i + rc : i + rc - capacity
-        
+
         // Destroy items in collapsed range
         if i <= j {
             // ....ABC̲D̲E̲FG...
@@ -670,10 +670,10 @@ final class DequeBuffer<Element>: NonObjectiveCBase {
             p.deinitialize(count: j)
             // ..FG.......AB.
         }
-        
+
         if count - range.startIndex - rc < range.startIndex {
             let end = start + count < capacity ? start + count : start + count - capacity
-            
+
             // Slide trailing items to the left
             if i <= end { // No wrap anywhere after start of collapsed range
                 // ....AB.̲..CD...
@@ -757,7 +757,7 @@ final class DequeBuffer<Element>: NonObjectiveCBase {
             count -= rc
         }
     }
-    
+
     internal func replaceRange<C: Collection where C.Iterator.Element == Element>(range: Range<Int>, with newElements: C) {
         let newCount: Int = numericCast(newElements.count)
         let delta = newCount - range.count
@@ -827,14 +827,14 @@ extension Deque {
             try buffer.forEach(body)
         }
     }
-    
+
     public func map<T>(@noescape transform: (Element) throws -> T) rethrows -> [T] {
         var result: [T] = []
         result.reserveCapacity(self.count)
         try self.forEach { result.append(try transform($0)) }
         return result
     }
-    
+
     public func flatMap<T>(@noescape transform: (Element) throws -> T?) rethrows -> [T] {
         var result: [T] = []
         try self.forEach {
@@ -844,7 +844,7 @@ extension Deque {
         }
         return result
     }
-    
+
     public func flatMap<S: Sequence>(transform: (Element) throws -> S) rethrows -> [S.Iterator.Element] {
         var result: [S.Iterator.Element] = []
         try self.forEach {
@@ -852,7 +852,7 @@ extension Deque {
         }
         return result
     }
-    
+
     public func filter(@noescape includeElement: (Element) throws -> Bool) rethrows -> [Element] {
         var result: [Element] = []
         try self.forEach {
@@ -862,7 +862,7 @@ extension Deque {
         }
         return result
     }
-    
+
     public func reduce<T>(initial: T, @noescape combine: (T, Element) throws -> T) rethrows -> T {
         var result = initial
         try self.forEach {
