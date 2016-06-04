@@ -67,13 +67,20 @@ extension Deque {
 
     internal var isUnique: Bool { mutating get { return isUniquelyReferenced(&buffer) } }
 
+    @inline(__always)
     private mutating func makeUnique() {
         self.makeUniqueWithCapacity(buffer.capacity)
     }
 
+    @inline(__always)
     private mutating func makeUniqueWithCapacity(capacity: Int) {
         guard !isUnique || buffer.capacity < capacity else { return }
         let copy = DequeBuffer<Element>(capacity: capacity)
+
+        // Ensure new buffer is indistinguishable from the original in unit tests.
+        // This is a workaround for Swift 2.2.1 where the pass-by-reference optimization seems to be missing in debug builds.
+        copy.start = buffer.start
+
         copy.insertContentsOf(buffer, at: 0)
         buffer = copy
     }
@@ -109,6 +116,7 @@ extension Deque: MutableCollectionType {
         }
         set(value) {
             checkSubscript(index)
+            makeUnique()
             buffer[index] = value
         }
     }
@@ -244,6 +252,7 @@ extension Deque: RangeReplaceableCollectionType {
     /// - Complexity: O(1) if storage isn't shared with another live deque; otherwise O(`count`).
     public mutating func removeFirst() -> Element {
         precondition(count > 0)
+        makeUnique()
         return buffer.popFirst()!
     }
 
@@ -253,6 +262,7 @@ extension Deque: RangeReplaceableCollectionType {
     /// - Complexity: O(`n`) if storage isn't shared with another live deque; otherwise O(`count`).
     public mutating func removeFirst(n: Int) {
         precondition(count >= n)
+        makeUnique()
         buffer.removeRange(0 ..< n)
     }
 
@@ -262,6 +272,7 @@ extension Deque: RangeReplaceableCollectionType {
     /// - Complexity: O(`n`) if storage isn't shared with another live deque; otherwise O(`count`).
     public mutating func removeRange(range: Range<Int>) {
         precondition(range.startIndex >= 0 && range.endIndex <= count)
+        makeUnique()
         buffer.removeRange(range)
     }
 
@@ -269,6 +280,7 @@ extension Deque: RangeReplaceableCollectionType {
     ///
     /// - Complexity: O(`count`).
     public mutating func removeAll(keepCapacity keepCapacity: Bool = false) {
+        makeUnique()
         if keepCapacity {
             buffer.removeRange(0..<count)
         }
@@ -286,6 +298,7 @@ extension Deque {
     /// - Complexity: O(1) if storage isn't shared with another live deque; otherwise O(`count`).
     public mutating func removeLast() -> Element {
         precondition(count > 0)
+        makeUnique()
         return buffer.popLast()!
     }
 
@@ -296,6 +309,7 @@ extension Deque {
     public mutating func removeLast(n: Int) {
         let c = count
         precondition(c >= n)
+        makeUnique()
         buffer.removeRange(c - n ..< c)
     }
 
@@ -303,6 +317,7 @@ extension Deque {
     ///
     /// - Complexity: O(1) if storage isn't shared with another live deque; otherwise O(`count`).
     public mutating func popFirst() -> Element? {
+        makeUnique()
         return buffer.popFirst()
     }
 
@@ -310,6 +325,7 @@ extension Deque {
     ///
     /// - Complexity: O(1) if storage isn't shared with another live deque; otherwise O(`count`).
     public mutating func popLast() -> Element? {
+        makeUnique()
         return buffer.popLast()
     }
 
