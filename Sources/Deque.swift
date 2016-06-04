@@ -68,13 +68,20 @@ extension Deque {
 
     internal var isUnique: Bool { mutating get { return isUniquelyReferenced(&buffer) } }
 
+    @inline(__always)
     private mutating func makeUnique() {
         self.makeUnique(buffer.capacity)
     }
 
+    @inline(__always)
     private mutating func makeUnique(_ capacity: Int) {
         guard !isUnique || buffer.capacity < capacity else { return }
         let copy = DequeBuffer<Element>(capacity: capacity)
+
+        // Ensure new buffer is indistinguishable from the original in unit tests.
+        // This is a workaround for Swift 2.2.1 where the pass-by-reference optimization seems to be missing in debug builds.
+        copy.start = buffer.start
+
         copy.insert(contentsOf: buffer, at: 0)
         buffer = copy
     }
@@ -151,6 +158,7 @@ extension Deque: MutableCollection {
         }
         set(value) {
             checkSubscript(index)
+            makeUnique()
             buffer[index] = value
         }
     }
@@ -297,6 +305,7 @@ extension Deque: RangeReplaceableCollection {
     @discardableResult
     public mutating func removeFirst() -> Element {
         precondition(count > 0)
+        makeUnique()
         return buffer.popFirst()!
     }
 
@@ -306,6 +315,7 @@ extension Deque: RangeReplaceableCollection {
     /// - Complexity: O(`n`) if storage isn't shared with another live deque; otherwise O(`count`).
     public mutating func removeFirst(_ n: Int) {
         precondition(count >= n)
+        makeUnique()
         buffer.removeSubrange(0 ..< n)
     }
 
@@ -315,6 +325,7 @@ extension Deque: RangeReplaceableCollection {
     /// - Complexity: O(`n`) if storage isn't shared with another live deque; otherwise O(`count`).
     public mutating func removeSubrange(_ range: Range<Int>) {
         precondition(range.lowerBound >= 0 && range.upperBound <= count)
+        makeUnique()
         buffer.removeSubrange(range)
     }
 
@@ -322,6 +333,7 @@ extension Deque: RangeReplaceableCollection {
     ///
     /// - Complexity: O(`count`).
     public mutating func removeAll(keepCapacity: Bool = false) {
+        makeUnique()
         if keepCapacity {
             buffer.removeSubrange(0..<count)
         }
@@ -340,6 +352,7 @@ extension Deque {
     @discardableResult
     public mutating func removeLast() -> Element {
         precondition(count > 0)
+        makeUnique()
         return buffer.popLast()!
     }
 
@@ -350,6 +363,7 @@ extension Deque {
     public mutating func removeLast(_ n: Int) {
         let c = count
         precondition(c >= n)
+        makeUnique()
         buffer.removeSubrange(c - n ..< c)
     }
 
@@ -358,6 +372,7 @@ extension Deque {
     /// - Complexity: O(1) if storage isn't shared with another live deque; otherwise O(`count`).
     @discardableResult
     public mutating func popFirst() -> Element? {
+        makeUnique()
         return buffer.popFirst()
     }
 
@@ -366,6 +381,7 @@ extension Deque {
     /// - Complexity: O(1) if storage isn't shared with another live deque; otherwise O(`count`).
     @discardableResult
     public mutating func popLast() -> Element? {
+        makeUnique()
         return buffer.popLast()
     }
 
