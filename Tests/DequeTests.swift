@@ -9,9 +9,9 @@
 import XCTest
 @testable import Deque
 
-func cast<Source, Target>(value: Source) -> Target { return value as! Target }
+func cast<Source, Target>(_ value: Source) -> Target { return value as! Target }
 
-func XCTAssertElementsEqual<Element: Equatable, S: SequenceType where S.Generator.Element == Element>(a: S, _ b: [Element], file: StaticString = #file, line: UInt = #line) {
+func XCTAssertElementsEqual<Element: Equatable, S: Sequence where S.Iterator.Element == Element>(_ a: S, _ b: [Element], file: StaticString = #file, line: UInt = #line) {
     let aa = Array(a)
     if !aa.elementsEqual(b) {
         XCTFail("XCTAssertEqual failed: \"\(aa)\" is not equal to \"\(b)\"", file: cast(file), line: line)
@@ -40,7 +40,7 @@ private func <(a: T, b: T) -> Bool {
     return a.value < b.value
 }
 
-private func dequeWithElements(elements: [T], wrappedAt wrap: Int) -> Deque<T> {
+private func deque(with elements: [T], wrappedAt wrap: Int) -> Deque<T> {
     var deque = Deque<T>(minimumCapacity: max(15, 2 * elements.count))
     let capacity = deque.capacity
     precondition(wrap > -capacity && wrap < capacity)
@@ -95,7 +95,7 @@ class DequeTests: XCTestCase {
     }
 
     func testRepeatedValue() {
-        let deque = Deque<T>(count: 4, repeatedValue: 100)
+        let deque = Deque<T>(repeating: 100, count: 4)
         XCTAssertEqual(deque.count, 4)
         XCTAssertEqual(deque[0], 100)
         XCTAssertEqual(deque[1], 100)
@@ -108,7 +108,7 @@ class DequeTests: XCTestCase {
         var deque = Deque<T>(minimumCapacity: 100)
         XCTAssertGreaterThanOrEqual(deque.capacity, 100)
 
-        deque.appendContentsOf([0, 1, 2, 3, 4])
+        deque.append(contentsOf: [0, 1, 2, 3, 4])
 
         deque.reserveCapacity(1000)
         XCTAssertGreaterThanOrEqual(deque.capacity, 1000)
@@ -129,7 +129,7 @@ class DequeTests: XCTestCase {
     }
 
     func testCapacityWrapped() {
-        var d = dequeWithElements([0, 1, 2, 3, 4], wrappedAt: 2)
+        var d = deque(with: [0, 1, 2, 3, 4], wrappedAt: 2)
         let capacity = d.capacity
         d.reserveCapacity(2 * capacity)
         XCTAssertGreaterThanOrEqual(d.capacity, 2 * capacity)
@@ -163,22 +163,22 @@ class DequeTests: XCTestCase {
     func testCustomPrinting() {
         let deque: Deque<T> = [1, 7, 3, 2, 6, 5, 4]
         XCTAssertEqual(deque.description, "Deque[1, 7, 3, 2, 6, 5, 4]")
-        let debug = deque.debugDescription.stringByReplacingOccurrencesOfString("<[^>]+>", withString: "<T>", options: NSStringCompareOptions.RegularExpressionSearch)
+        let debug = deque.debugDescription.replacingOccurrences(of: "<[^>]+>", with: "<T>", options: .regularExpressionSearch)
         XCTAssertEqual(debug, "Deque.Deque<T>([1, 7, 3, 2, 6, 5, 4])")
     }
 
     func testReplaceRange() {
         var deque: Deque<T> = [1, 7, 3, 2, 6, 5, 4]
-        deque.replaceRange(2..<5, with: (10..<15).map { T($0) })
+        deque.replaceSubrange(2..<5, with: (10..<15).map { T($0) })
         XCTAssertElementsEqual(deque, [1, 7, 10, 11, 12, 13, 14, 5, 4])
 
-        deque.replaceRange(1..<5, with: [])
+        deque.replaceSubrange(1..<5, with: [])
         XCTAssertElementsEqual(deque, [1, 13, 14, 5, 4])
 
-        deque.replaceRange(0..<5, with: [20, 21, 22])
+        deque.replaceSubrange(0..<5, with: [20, 21, 22])
         XCTAssertElementsEqual(deque, [20, 21, 22])
 
-        deque.replaceRange(0..<3, with: [1, 2, 3, 4, 5])
+        deque.replaceSubrange(0..<3, with: [1, 2, 3, 4, 5])
         XCTAssertElementsEqual(deque, [1, 2, 3, 4, 5])
     }
 
@@ -198,16 +198,16 @@ class DequeTests: XCTestCase {
     func testAppendContentsOf() {
         var deque: Deque<T> = [1, 2, 3]
 
-        deque.appendContentsOf((4...6).map { T($0) })
+        deque.append(contentsOf: (4...6).map { T($0) })
         XCTAssertElementsEqual(deque, (1...6).map { T($0) })
 
-        deque.appendContentsOf((7...100).map { T($0) })
+        deque.append(contentsOf: (7...100).map { T($0) })
         XCTAssertElementsEqual(deque, (1...100).map { T($0) })
 
         // Add a sequence with inexact underestimateCount()
         var i = 101
-        deque.appendContentsOf(AnySequence<T> {
-            AnyGenerator {
+        deque.append(contentsOf: AnySequence<T> {
+            AnyIterator {
                 if i > 1000 {
                     return nil
                 }
@@ -221,73 +221,71 @@ class DequeTests: XCTestCase {
     func testInsert() {
         var deque: Deque<T> = [1, 2, 3, 4]
 
-        deque.insert(10, atIndex: 2)
+        deque.insert(10, at: 2)
         XCTAssertElementsEqual(deque, [1, 2, 10, 3, 4])
 
-        deque.insert(11, atIndex: 0)
+        deque.insert(11, at: 0)
         XCTAssertElementsEqual(deque, [11, 1, 2, 10, 3, 4])
 
-        deque.insert(12, atIndex: 6)
+        deque.insert(12, at: 6)
         XCTAssertElementsEqual(deque, [11, 1, 2, 10, 3, 4, 12])
     }
 
     func testInsertContentsOf() {
         var deque: Deque<T> = [1, 2, 3]
 
-        deque.insertContentsOf([], at: 2)
+        deque.insert(contentsOf: [], at: 2)
         XCTAssertElementsEqual(deque, [1, 2, 3])
 
-        deque.insertContentsOf([10], at: 2)
+        deque.insert(contentsOf: [10], at: 2)
         XCTAssertElementsEqual(deque, [1, 2, 10, 3])
 
-        deque.insertContentsOf([11, 12], at: 0)
+        deque.insert(contentsOf: [11, 12], at: 0)
         XCTAssertElementsEqual(deque, [11, 12, 1, 2, 10, 3])
 
-        deque.insertContentsOf([13, 14, 15], at: 6)
+        deque.insert(contentsOf: [13, 14, 15], at: 6)
         XCTAssertElementsEqual(deque, [11, 12, 1, 2, 10, 3, 13, 14, 15])
     }
 
     func testInsertContentsOfBuffer() {
-        let d1 = dequeWithElements([0, 1, 2, 3], wrappedAt: 0)
-        d1.buffer.insertContentsOf(dequeWithElements([5, 6, 7], wrappedAt: 0).buffer, at: 2)
+        let d1 = deque(with: [0, 1, 2, 3], wrappedAt: 0)
+        d1.buffer.insert(contentsOf: deque(with: [5, 6, 7], wrappedAt: 0).buffer, at: 2)
         XCTAssertElementsEqual(d1, [0, 1, 5, 6, 7, 2, 3])
 
-        let d2 = dequeWithElements([0, 1, 2, 3, 4], wrappedAt: -1)
-        d2.buffer.insertContentsOf(dequeWithElements([5, 6, 7], wrappedAt: 0).buffer, at: 1)
+        let d2 = deque(with: [0, 1, 2, 3, 4], wrappedAt: -1)
+        d2.buffer.insert(contentsOf: deque(with: [5, 6, 7], wrappedAt: 0).buffer, at: 1)
         XCTAssertElementsEqual(d2, [0, 5, 6, 7, 1, 2, 3, 4])
 
-        let d3 = dequeWithElements([0, 1, 2, 3, 4], wrappedAt: 0)
-        d3.buffer.insertContentsOf(dequeWithElements([5, 6, 7], wrappedAt: 1).buffer, at: 3)
+        let d3 = deque(with: [0, 1, 2, 3, 4], wrappedAt: 0)
+        d3.buffer.insert(contentsOf: deque(with: [5, 6, 7], wrappedAt: 1).buffer, at: 3)
         XCTAssertElementsEqual(d3, [0, 1, 2, 5, 6, 7, 3, 4])
 
-        let d4 = dequeWithElements([0, 1, 2, 3, 4], wrappedAt: -1)
-        d4.buffer.insertContentsOf(dequeWithElements([5, 6, 7], wrappedAt: 2).buffer, at: 1)
+        let d4 = deque(with: [0, 1, 2, 3, 4], wrappedAt: -1)
+        d4.buffer.insert(contentsOf: deque(with: [5, 6, 7], wrappedAt: 2).buffer, at: 1)
         XCTAssertElementsEqual(d4, [0, 5, 6, 7, 1, 2, 3, 4])
 
-        let d5 = dequeWithElements([0, 1, 2, 3, 4], wrappedAt: -2)
-        d5.buffer.insertContentsOf(dequeWithElements([5, 6, 7, 8, 9], wrappedAt: 1).buffer, at: 1)
+        let d5 = deque(with: [0, 1, 2, 3, 4], wrappedAt: -2)
+        d5.buffer.insert(contentsOf: deque(with: [5, 6, 7, 8, 9], wrappedAt: 1).buffer, at: 1)
         XCTAssertElementsEqual(d5, [0, 5, 6, 7, 8, 9, 1, 2, 3, 4])
 
-        let d6 = dequeWithElements([0, 1, 2, 3, 4], wrappedAt: -1)
-        d6.buffer.insertContentsOf(dequeWithElements([5, 6, 7], wrappedAt: 1).buffer, at: 1)
+        let d6 = deque(with: [0, 1, 2, 3, 4], wrappedAt: -1)
+        d6.buffer.insert(contentsOf: deque(with: [5, 6, 7], wrappedAt: 1).buffer, at: 1)
         XCTAssertElementsEqual(d6, [0, 5, 6, 7, 1, 2, 3, 4])
-
-
     }
 
     func testRemoveAtIndex() {
         var deque: Deque<T> = [1, 2, 3, 4]
 
-        deque.removeAtIndex(2)
+        deque.remove(at: 2)
         XCTAssertElementsEqual(deque, [1, 2, 4])
 
-        deque.removeAtIndex(0)
+        deque.remove(at: 0)
         XCTAssertElementsEqual(deque, [2, 4])
 
-        deque.removeAtIndex(1)
+        deque.remove(at: 1)
         XCTAssertElementsEqual(deque, [2])
 
-        deque.removeAtIndex(0)
+        deque.remove(at: 0)
         XCTAssertElementsEqual(deque, [])
     }
 
@@ -323,25 +321,25 @@ class DequeTests: XCTestCase {
         XCTAssertElementsEqual(deque, [])
     }
 
-    func testRemoveRange() {
+    func testRemoveSubrange() {
         var deque: Deque<T> = [1, 2, 3, 4, 5, 6]
 
-        deque.removeRange(3 ..< 3)
+        deque.removeSubrange(3 ..< 3)
         XCTAssertElementsEqual(deque, [1, 2, 3, 4, 5, 6])
 
-        deque.removeRange(3 ..< 5)
+        deque.removeSubrange(3 ..< 5)
         XCTAssertElementsEqual(deque, [1, 2, 3, 6])
 
-        deque.removeRange(2 ..< 4)
+        deque.removeSubrange(2 ..< 4)
         XCTAssertElementsEqual(deque, [1, 2])
 
-        deque.removeRange(0 ..< 1)
+        deque.removeSubrange(0 ..< 1)
         XCTAssertElementsEqual(deque, [2])
 
-        deque.removeRange(0 ..< 1)
+        deque.removeSubrange(0 ..< 1)
         XCTAssertElementsEqual(deque, [])
 
-        deque.removeRange(0 ..< 0)
+        deque.removeSubrange(0 ..< 0)
         XCTAssertElementsEqual(deque, [])
     }
 
@@ -452,13 +450,13 @@ class DequeTests: XCTestCase {
     }
 
     func testInsertionCases() {
-        func testInsert(elements elements: [T], wrappedAt wrap: Int, insertionIndex: Int, insertedElements: [T], file: StaticString = #file, line: UInt = #line) {
-            var deque = dequeWithElements(elements, wrappedAt: wrap)
+        func testInsert(elements: [T], wrappedAt wrap: Int, insertionIndex: Int, insertedElements: [T], file: StaticString = #file, line: UInt = #line) {
+            var d = deque(with: elements, wrappedAt: wrap)
             var expected = elements
-            expected.insertContentsOf(insertedElements, at: insertionIndex)
-            deque.insertContentsOf(insertedElements, at: insertionIndex)
+            expected.insert(contentsOf: insertedElements, at: insertionIndex)
+            d.insert(contentsOf: insertedElements, at: insertionIndex)
 
-            XCTAssertElementsEqual(deque, expected, file: file, line: line)
+            XCTAssertElementsEqual(d, expected, file: file, line: line)
         }
         // These tests exercise all cases in DequeBuffer.openGapAt(_:, length:).
         testInsert(elements: [0, 1, 2, 3, 4], wrappedAt: 0, insertionIndex: 3, insertedElements: [5, 6])
@@ -476,15 +474,15 @@ class DequeTests: XCTestCase {
 
 
     func testRemovalCases() {
-        func testRemove(elements elements: [T], wrappedAt wrap: Int, range: Range<Int>, file: StaticString = #file, line: UInt = #line) {
-            var deque = dequeWithElements(elements, wrappedAt: wrap)
+        func testRemove(elements: [T], wrappedAt wrap: Int, range: Range<Int>, file: StaticString = #file, line: UInt = #line) {
+            var d = deque(with: elements, wrappedAt: wrap)
             var expected = elements
-            expected.removeRange(range)
-            deque.removeRange(range)
+            expected.removeSubrange(range)
+            d.removeSubrange(range)
 
-            XCTAssertElementsEqual(deque, expected, file: file, line: line)
+            XCTAssertElementsEqual(d, expected, file: file, line: line)
         }
-        // These tests exercise all cases in DequeBuffer.removeRange(_:).
+        // These tests exercise all cases in DequeBuffer.removeSubrange(_:).
         testRemove(elements: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], wrappedAt: 0, range: 7..<8)
         testRemove(elements: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], wrappedAt: 8, range: 7..<10)
         testRemove(elements: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], wrappedAt: 8, range: 7..<9)
@@ -500,21 +498,21 @@ class DequeTests: XCTestCase {
     }
 
     func testForEachSimple() {
-        let d1 = dequeWithElements([0, 1, 2, 3, 4], wrappedAt: 0)
+        let d1 = deque(with: [0, 1, 2, 3, 4], wrappedAt: 0)
         var r1: [T] = []
         d1.forEach { i in r1.append(i) }
         XCTAssertEqual(r1, [0, 1, 2, 3, 4])
     }
 
     func testForEachWrapped() {
-        let d2 = dequeWithElements([0, 1, 2, 3, 4], wrappedAt: 2)
+        let d2 = deque(with: [0, 1, 2, 3, 4], wrappedAt: 2)
         var r2: [T] = []
         d2.forEach { i in r2.append(i) }
         XCTAssertEqual(r2, [0, 1, 2, 3, 4])
     }
 
     func testForEachMutating() {
-        var d = dequeWithElements([0, 1, 2, 3, 4], wrappedAt: 2)
+        var d = deque(with: [0, 1, 2, 3, 4], wrappedAt: 2)
         var r: [T] = []
         d.forEach { i in
             r.append(i)
@@ -525,46 +523,46 @@ class DequeTests: XCTestCase {
     }
 
     func testMap() {
-        let d = dequeWithElements([0, 1, 2, 3, 4], wrappedAt: 2)
+        let d = deque(with: [0, 1, 2, 3, 4], wrappedAt: 2)
         XCTAssertElementsEqual(d.map { 2 * $0.value }, [0, 2, 4, 6, 8])
     }
 
     func testFlatMapOptional() {
-        let d = dequeWithElements([0, 1, 2, 3, 4], wrappedAt: 2)
+        let d = deque(with: [0, 1, 2, 3, 4], wrappedAt: 2)
         let r = d.flatMap { $0.value % 2 == 0 ? $0.value : nil }
         XCTAssertElementsEqual(r, [0, 2, 4])
     }
 
     func testFlatMapSequence() {
-        let d = dequeWithElements([0, 1, 2, 3, 4], wrappedAt: 2)
+        let d = deque(with: [0, 1, 2, 3, 4], wrappedAt: 2)
         let r = d.flatMap { 0...$0.value }
         XCTAssertElementsEqual(r, [0, 0, 1, 0, 1, 2, 0, 1, 2, 3, 0, 1, 2, 3, 4])
     }
 
     func testFilter() {
-        let d = dequeWithElements([0, 1, 2, 3, 4], wrappedAt: 2)
+        let d = deque(with: [0, 1, 2, 3, 4], wrappedAt: 2)
         let r = d.filter { $0.value % 2 == 0 }
         XCTAssertElementsEqual(r, [0, 2, 4])
     }
 
     func testReduce() {
-        let d = dequeWithElements([0, 1, 2, 3, 4], wrappedAt: 2)
+        let d = deque(with: [0, 1, 2, 3, 4], wrappedAt: 2)
         let sum = d.reduce(0) { $0 + $1.value }
         XCTAssertEqual(sum, 10)
     }
 
     func testIndexConversion() {
-        let d = dequeWithElements([0, 1, 2, 3, 4], wrappedAt: 2)
-        XCTAssertEqual(d.buffer.bufferIndexForDequeIndex(0), d.capacity - 2)
-        XCTAssertEqual(d.buffer.bufferIndexForDequeIndex(1), d.capacity - 1)
-        XCTAssertEqual(d.buffer.bufferIndexForDequeIndex(2), 0)
-        XCTAssertEqual(d.buffer.bufferIndexForDequeIndex(3), 1)
-        XCTAssertEqual(d.buffer.bufferIndexForDequeIndex(4), 2)
+        let d = deque(with: [0, 1, 2, 3, 4], wrappedAt: 2)
+        XCTAssertEqual(d.buffer.bufferIndex(forDequeIndex: 0), d.capacity - 2)
+        XCTAssertEqual(d.buffer.bufferIndex(forDequeIndex: 1), d.capacity - 1)
+        XCTAssertEqual(d.buffer.bufferIndex(forDequeIndex: 2), 0)
+        XCTAssertEqual(d.buffer.bufferIndex(forDequeIndex: 3), 1)
+        XCTAssertEqual(d.buffer.bufferIndex(forDequeIndex: 4), 2)
 
-        XCTAssertEqual(d.buffer.dequeIndexForBufferIndex(d.capacity - 2), 0)
-        XCTAssertEqual(d.buffer.dequeIndexForBufferIndex(d.capacity - 1), 1)
-        XCTAssertEqual(d.buffer.dequeIndexForBufferIndex(0), 2)
-        XCTAssertEqual(d.buffer.dequeIndexForBufferIndex(1), 3)
-        XCTAssertEqual(d.buffer.dequeIndexForBufferIndex(2), 4)
+        XCTAssertEqual(d.buffer.dequeIndex(forBufferIndex: d.capacity - 2), 0)
+        XCTAssertEqual(d.buffer.dequeIndex(forBufferIndex: d.capacity - 1), 1)
+        XCTAssertEqual(d.buffer.dequeIndex(forBufferIndex: 0), 2)
+        XCTAssertEqual(d.buffer.dequeIndex(forBufferIndex: 1), 3)
+        XCTAssertEqual(d.buffer.dequeIndex(forBufferIndex: 2), 4)
     }
 }
