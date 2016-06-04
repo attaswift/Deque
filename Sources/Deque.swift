@@ -281,6 +281,7 @@ extension Deque: RangeReplaceableCollection {
     /// Remove the element at a given index from this deque.
     ///
     /// - Complexity: O(`count`). Note though that complexity is O(1) if `index` is of a constant distance from the front or end of the deque.
+    @discardableResult
     public mutating func remove(at index: Int) -> Element {
         checkSubscript(index)
         makeUnique()
@@ -293,6 +294,7 @@ extension Deque: RangeReplaceableCollection {
     ///
     /// - Requires: `count > 0`
     /// - Complexity: O(1) if storage isn't shared with another live deque; otherwise O(`count`).
+    @discardableResult
     public mutating func removeFirst() -> Element {
         precondition(count > 0)
         return buffer.popFirst()!
@@ -335,6 +337,7 @@ extension Deque {
     ///
     /// - Requires: `count > 0`
     /// - Complexity: O(1) if storage isn't shared with another live deque; otherwise O(`count`).
+    @discardableResult
     public mutating func removeLast() -> Element {
         precondition(count > 0)
         return buffer.popLast()!
@@ -353,6 +356,7 @@ extension Deque {
     /// Remove and return the first element if the deque isn't empty; otherwise return nil.
     ///
     /// - Complexity: O(1) if storage isn't shared with another live deque; otherwise O(`count`).
+    @discardableResult
     public mutating func popFirst() -> Element? {
         return buffer.popFirst()
     }
@@ -360,6 +364,7 @@ extension Deque {
     /// Remove and return the last element if the deque isn't empty; otherwise return nil.
     ///
     /// - Complexity: O(1) if storage isn't shared with another live deque; otherwise O(`count`).
+    @discardableResult
     public mutating func popLast() -> Element? {
         return buffer.popLast()
     }
@@ -501,6 +506,7 @@ final class DequeBuffer<Element>: NonObjectiveCBase {
         self.count += 1
     }
 
+    @discardableResult
     internal func popFirst() -> Element? {
         guard count > 0 else { return nil }
         let first = elements.advanced(by: start).move()
@@ -516,6 +522,7 @@ final class DequeBuffer<Element>: NonObjectiveCBase {
         self.count += 1
     }
 
+    @discardableResult
     internal func popLast() -> Element? {
         guard count > 0 else { return nil }
         let lastIndex = bufferIndex(forDequeIndex: count - 1)
