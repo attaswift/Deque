@@ -204,7 +204,7 @@ extension Deque: RangeReplaceableCollection {
     ///
     /// - Complexity: O(`range.count`) if storage isn't shared with another live deque,
     ///   and `range` is a constant distance from the start or the end of the deque; otherwise O(`count + range.count`).
-    public mutating func replaceSubrange<C: Collection where C.Iterator.Element == Element>(_ range: Range<Int>, with newElements: C) {
+    public mutating func replaceSubrange<C: Collection where C.Iterator.Element == Iterator.Element>(_ range: Range<Int>, with newElements: C) {
         precondition(range.lowerBound >= 0 && range.upperBound <= count)
         let newCount: Int = numericCast(newElements.count)
         let delta = newCount - range.count
