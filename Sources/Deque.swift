@@ -79,7 +79,7 @@ extension Deque {
         let copy = DequeBuffer<Element>(capacity: capacity)
 
         // Ensure new buffer is indistinguishable from the original in unit tests.
-        // This is a workaround for Swift 2.2.1 where the pass-by-reference optimization seems to be missing in debug builds.
+        // This is a workaround for a compiler issue where the pass-by-reference optimization seems to be missing in debug builds.
         copy.start = buffer.start
 
         copy.insert(contentsOf: buffer, at: 0)
