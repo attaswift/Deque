@@ -505,7 +505,7 @@ class DequeTests: XCTestCase {
     }
 
     func testInsertionCases() {
-        func testInsert(elements: [T], wrappedAt wrap: Int, insertionIndex: Int, insertedElements: [T], file: StaticString = #file, line: UInt = #line) {
+        func testInsert(_ elements: [T], wrappedAt wrap: Int, insertionIndex: Int, insertedElements: [T], file: StaticString = #file, line: UInt = #line) {
             var d = deque(with: elements, wrappedAt: wrap)
             let orig = d
 
@@ -517,22 +517,22 @@ class DequeTests: XCTestCase {
             XCTAssertElementsEqual(orig, elements, file: file, line: line)
         }
         // These tests exercise all cases in DequeBuffer.openGapAt(_:, length:).
-        testInsert(elements: [0, 1, 2, 3, 4], wrappedAt: 0, insertionIndex: 3, insertedElements: [5, 6])
-        testInsert(elements: [0, 1, 2, 3, 4, 5, 6], wrappedAt: 7, insertionIndex: 4, insertedElements: [7, 8])
-        testInsert(elements: [0, 1, 2, 3, 4, 5, 6], wrappedAt: 7, insertionIndex: 4, insertedElements: [7, 8, 9, 10])
-        testInsert(elements: [0, 1, 2, 3, 4, 5, 6], wrappedAt: 6, insertionIndex: 4, insertedElements: [7])
-        testInsert(elements: [0, 1, 2, 3, 4, 5, 6], wrappedAt: 6, insertionIndex: 4, insertedElements: [7, 8, 9, 10])
+        testInsert([0, 1, 2, 3, 4], wrappedAt: 0, insertionIndex: 3, insertedElements: [5, 6])
+        testInsert([0, 1, 2, 3, 4, 5, 6], wrappedAt: 7, insertionIndex: 4, insertedElements: [7, 8])
+        testInsert([0, 1, 2, 3, 4, 5, 6], wrappedAt: 7, insertionIndex: 4, insertedElements: [7, 8, 9, 10])
+        testInsert([0, 1, 2, 3, 4, 5, 6], wrappedAt: 6, insertionIndex: 4, insertedElements: [7])
+        testInsert([0, 1, 2, 3, 4, 5, 6], wrappedAt: 6, insertionIndex: 4, insertedElements: [7, 8, 9, 10])
 
-        testInsert(elements: [0, 1, 2, 3, 4], wrappedAt: -2, insertionIndex: 2, insertedElements: [5, 6])
-        testInsert(elements: [0, 1, 2, 3, 4], wrappedAt: -1, insertionIndex: 2, insertedElements: [5, 6])
-        testInsert(elements: [0, 1, 2, 3, 4], wrappedAt: 0, insertionIndex: 2, insertedElements: [5, 6, 7, 8])
-        testInsert(elements: [0, 1, 2, 3, 4], wrappedAt: 1, insertionIndex: 2, insertedElements: [5])
-        testInsert(elements: [0, 1, 2, 3, 4], wrappedAt: 1, insertionIndex: 2, insertedElements: [5, 6, 7, 8])
+        testInsert([0, 1, 2, 3, 4], wrappedAt: -2, insertionIndex: 2, insertedElements: [5, 6])
+        testInsert([0, 1, 2, 3, 4], wrappedAt: -1, insertionIndex: 2, insertedElements: [5, 6])
+        testInsert([0, 1, 2, 3, 4], wrappedAt: 0, insertionIndex: 2, insertedElements: [5, 6, 7, 8])
+        testInsert([0, 1, 2, 3, 4], wrappedAt: 1, insertionIndex: 2, insertedElements: [5])
+        testInsert([0, 1, 2, 3, 4], wrappedAt: 1, insertionIndex: 2, insertedElements: [5, 6, 7, 8])
     }
 
 
     func testRemovalCases() {
-        func testRemove(elements: [T], wrappedAt wrap: Int, range: Range<Int>, file: StaticString = #file, line: UInt = #line) {
+        func testRemove(_ elements: [T], wrappedAt wrap: Int, range: Range<Int>, file: StaticString = #file, line: UInt = #line) {
             var d = deque(with: elements, wrappedAt: wrap)
             let orig = d
             var expected = elements
@@ -543,17 +543,17 @@ class DequeTests: XCTestCase {
             XCTAssertElementsEqual(orig, elements)
         }
         // These tests exercise all cases in DequeBuffer.removeSubrange(_:).
-        testRemove(elements: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], wrappedAt: 0, range: 7..<8)
-        testRemove(elements: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], wrappedAt: 8, range: 7..<10)
-        testRemove(elements: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], wrappedAt: 8, range: 7..<9)
-        testRemove(elements: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], wrappedAt: 10, range: 7..<9)
-        testRemove(elements: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], wrappedAt: 9, range: 7..<8)
+        testRemove([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], wrappedAt: 0, range: 7..<8)
+        testRemove([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], wrappedAt: 8, range: 7..<10)
+        testRemove([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], wrappedAt: 8, range: 7..<9)
+        testRemove([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], wrappedAt: 10, range: 7..<9)
+        testRemove([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], wrappedAt: 9, range: 7..<8)
 
-        testRemove(elements: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], wrappedAt: 0, range: 1..<2)
-        testRemove(elements: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], wrappedAt: 3, range: 1..<5)
-        testRemove(elements: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], wrappedAt: 3, range: 2..<4)
-        testRemove(elements: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], wrappedAt: 1, range: 2..<4)
-        testRemove(elements: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], wrappedAt: 2, range: 3..<4)
+        testRemove([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], wrappedAt: 0, range: 1..<2)
+        testRemove([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], wrappedAt: 3, range: 1..<5)
+        testRemove([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], wrappedAt: 3, range: 2..<4)
+        testRemove([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], wrappedAt: 1, range: 2..<4)
+        testRemove([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], wrappedAt: 2, range: 3..<4)
 
     }
 
