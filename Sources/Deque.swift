@@ -176,7 +176,7 @@ extension Deque: ArrayLiteralConvertible {
 //MARK: CustomStringConvertible
 
 extension Deque: CustomStringConvertible, CustomDebugStringConvertible {
-    @warn_unused_result
+    
     private func makeDescription(debug: Bool) -> String {
         var result = debug ? "\(String(reflecting: Deque.self))([" : "Deque["
         var first = true
@@ -396,7 +396,6 @@ extension Deque {
 
 //MARK: Equality operators
 
-@warn_unused_result
 func == <Element: Equatable>(a: Deque<Element>, b: Deque<Element>) -> Bool {
     let count = a.count
     if count != b.count { return false }
@@ -411,7 +410,6 @@ func == <Element: Equatable>(a: Deque<Element>, b: Deque<Element>) -> Bool {
     return true
 }
 
-@warn_unused_result
 func != <Element: Equatable>(a: Deque<Element>, b: Deque<Element>) -> Bool {
     return !(a == b)
 }
@@ -463,7 +461,6 @@ final class DequeBuffer<Element>: NonObjectiveCBase {
         p.deallocateCapacity(capacity)
     }
 
-    @warn_unused_result
     internal func realloc(_ capacity: Int) -> DequeBuffer {
         if capacity <= self.capacity { return self }
         let buffer = DequeBuffer(capacity: capacity)

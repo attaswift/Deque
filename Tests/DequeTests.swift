@@ -167,7 +167,7 @@ class DequeTests: XCTestCase {
     func testCustomPrinting() {
         let deque: Deque<T> = [1, 7, 3, 2, 6, 5, 4]
         XCTAssertEqual(deque.description, "Deque[1, 7, 3, 2, 6, 5, 4]")
-        let debug = deque.debugDescription.replacingOccurrences(of: "<[^>]+>", with: "<T>", options: .regularExpressionSearch)
+        let debug = deque.debugDescription.replacingOccurrences(of: "<[^>]+>", with: "<T>", options: .regularExpression)
         XCTAssertEqual(debug, "Deque.Deque<T>([1, 7, 3, 2, 6, 5, 4])")
     }
 
