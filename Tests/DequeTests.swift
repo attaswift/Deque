@@ -19,7 +19,7 @@ func XCTAssertElementsEqual<Element: Equatable, S: Sequence where S.Iterator.Ele
 }
 
 // A reference type that consists of an integer value. This makes it easier to check problems with initialization.
-private final class T: IntegerLiteralConvertible, Comparable, CustomStringConvertible, CustomDebugStringConvertible {
+private final class T: ExpressibleByIntegerLiteral, Comparable, CustomStringConvertible, CustomDebugStringConvertible {
     let value: Int
 
     init(_ value: Int) {
