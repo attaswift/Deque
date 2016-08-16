@@ -11,7 +11,7 @@ import XCTest
 
 func cast<Source, Target>(_ value: Source) -> Target { return value as! Target }
 
-func XCTAssertElementsEqual<Element: Equatable, S: Sequence where S.Iterator.Element == Element>(_ a: S, _ b: [Element], file: StaticString = #file, line: UInt = #line) {
+func XCTAssertElementsEqual<Element: Equatable, S: Sequence>(_ a: S, _ b: [Element], file: StaticString = #file, line: UInt = #line) where S.Iterator.Element == Element {
     let aa = Array(a)
     if !aa.elementsEqual(b) {
         XCTFail("XCTAssertEqual failed: \"\(aa)\" is not equal to \"\(b)\"", file: cast(file), line: line)
