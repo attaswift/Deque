@@ -1,7 +1,7 @@
 # A Double-Ended Queue Type in Swift
 
-[![Swift 2.2 & 3](https://img.shields.io/badge/Swift-2.2, 3-blue.svg)](https://swift.org) 
-[![License](https://img.shields.io/badge/licence-MIT-blue.svg)](https://github.com/lorentey/BTree/blob/master/LICENCE.md)
+[![Swift 3](https://img.shields.io/badge/Swift-3-blue.svg)](https://swift.org) 
+[![License](https://img.shields.io/badge/licence-MIT-blue.svg)](https://github.com/lorentey/BTree/blob/master/LICENSE.md)
 [![Platform](https://img.shields.io/badge/platforms-OS_X%20∙%20iOS%20∙%20watchOS%20∙%20tvOS-blue.svg)](https://developer.apple.com/platforms/)
 
 [![Build Status](https://travis-ci.org/lorentey/Deque.svg?branch=master)](https://travis-ci.org/lorentey/Deque)
@@ -19,12 +19,11 @@ Deques are structs and implement the same copy-on-write value semantics as stand
 
 ## Compatibility
 
-`Deque` on the `master` branch is compatible with Swift 2.2.
-Preliminary support for prerelease versions of Swift 3 is available on the `swift3` branch.
+`Deque` on the `master` branch is compatible with Swift 3.0.
 
 ## Note on Performance
 
-As of Swift 2.2, the Swift compiler is not yet able to specialize generics across module boundaries, which puts a 
+As of Swift 3.0, the Swift compiler is not yet able to specialize generics across module boundaries, which puts a 
 considerable limit on the performance achievable by collection types imported from external modules. 
 (This doesn't impact stdlib, which gets special treatment.)
 
