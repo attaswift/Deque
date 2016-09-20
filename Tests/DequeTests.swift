@@ -159,6 +159,26 @@ class DequeTests: XCTestCase {
         XCTAssertElementsEqual(deque2, [23, 42, 77, 111])
     }
 
+    func testCollectionRequirements() {
+        var deque = Deque<T>([0, 1, 2, 3, 4, 5])
+        XCTAssertEqual(0 ..< 6, deque.indices)
+        XCTAssertEqual(3, deque.index(after: 2))
+        XCTAssertEqual(1, deque.index(before: 2))
+        XCTAssertEqual(5, deque.index(2, offsetBy: 3))
+
+        var i = 2
+        deque.formIndex(after: &i)
+        XCTAssertEqual(3, i)
+        deque.formIndex(before: &i)
+        XCTAssertEqual(2, i)
+        deque.formIndex(&i, offsetBy: 3)
+        XCTAssertEqual(5, i)
+
+        XCTAssertElementsEqual(deque[2 ..< 5], [2, 3, 4])
+        deque[2 ..< 5] = Deque([20, 30, 31, 40, 41])[0 ..< 5]
+        XCTAssertElementsEqual(deque, [0, 1, 20, 30, 31, 40, 41, 5])
+    }
+
     func testArrayLiteral() {
         let deque: Deque<T> = [1, 7, 3, 2, 6, 5, 4]
         XCTAssertElementsEqual(deque, [1, 7, 3, 2, 6, 5, 4])
@@ -171,7 +191,7 @@ class DequeTests: XCTestCase {
         XCTAssertEqual(debug, "Deque.Deque<T>([1, 7, 3, 2, 6, 5, 4])")
     }
 
-    func testReplaceRange() {
+    func testReplaceSubrange() {
         var deque: Deque<T> = [1, 7, 3, 2, 6, 5, 4]
         let deque2 = deque
 
@@ -186,6 +206,12 @@ class DequeTests: XCTestCase {
 
         deque.replaceSubrange(0..<3, with: [1, 2, 3, 4, 5])
         XCTAssertElementsEqual(deque, [1, 2, 3, 4, 5])
+
+        deque.replaceSubrange(0...3, with: [10, 11, 12, 13, 14])
+        XCTAssertElementsEqual(deque, [10, 11, 12, 13, 14, 5])
+
+        deque.replaceSubrange(ClosedRange(0...3), with: [20, 21, 22])
+        XCTAssertElementsEqual(deque, [20, 21, 22, 14, 5])
 
         XCTAssertElementsEqual(deque2, [1, 7, 3, 2, 6, 5, 4])
     }

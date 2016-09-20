@@ -89,12 +89,18 @@ extension Deque {
 
 //MARK: MutableCollection
 
-extension Deque: MutableCollection {
+extension Deque: RandomAccessCollection, MutableCollection {
     public typealias Index = Int
+    public typealias Indices = CountableRange<Int>
     public typealias Iterator = IndexingIterator<Deque<Element>>
 
     /// The number of elements currently stored in this deque.
     public var count: Int { return buffer.count }
+
+    /// The indices that are valid for subscripting the collection, in ascending order.
+    public var indices: CountableRange<Int> {
+        return startIndex ..< endIndex
+    }
 
     /// The position of the first element in a non-empty deque (this is always zero).
     public var startIndex: Int { return 0 }
@@ -162,6 +168,16 @@ extension Deque: MutableCollection {
             buffer[index] = value
         }
     }
+
+    /// Accesses a contiguous subrange of the collection’s elements.
+    public subscript(bounds: Range<Int>) -> RandomAccessSlice<Deque<Element>> {
+        get {
+            return RandomAccessSlice(base: self, bounds: bounds)
+        }
+        set {
+            self.replaceSubrange(bounds, with: newValue)
+        }
+    }
 }
 
 //MARK: ArrayLiteralConvertible
@@ -226,6 +242,22 @@ extension Deque: RangeReplaceableCollection {
             b.insert(contentsOf: self.buffer, subrange: range.upperBound ..< count, at: b.count)
             buffer = b
         }
+    }
+
+    public mutating func replaceSubrange<C: Collection>(_ range: CountableRange<Int>, with newElements: C) where C.Iterator.Element == Iterator.Element {
+        // This is also defined as a protocol extension on RangeReplaceableCollection. However, using that extension
+        // breaks isUnique, leading to extra COW copies. Providing this overload restores COW behavior in static contexts, at least.
+        self.replaceSubrange(Range(range), with: newElements)
+    }
+    public mutating func replaceSubrange<C: Collection>(_ range: ClosedRange<Int>, with newElements: C) where C.Iterator.Element == Iterator.Element {
+        // This is also defined as a protocol extension on RangeReplaceableCollection. However, using that extension
+        // breaks isUnique, leading to extra COW copies. Providing this overload restores COW behavior in static contexts, at least.
+        self.replaceSubrange(Range(range), with: newElements)
+    }
+    public mutating func replaceSubrange<C: Collection>(_ range: CountableClosedRange<Int>, with newElements: C) where C.Iterator.Element == Iterator.Element {
+        // This is also defined as a protocol extension on RangeReplaceableCollection. However, using that extension
+        // breaks isUnique, leading to extra COW copies. Providing this overload restores COW behavior in static contexts, at least.
+        self.replaceSubrange(Range(range), with: newElements)
     }
 
     /// Append `newElement` to the end of this deque.
