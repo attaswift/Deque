@@ -163,7 +163,8 @@
 				BBF2944B1C6B9ED000367934 /* DequeTests.swift */,
 				BBF2944D1C6B9ED000367934 /* Info.plist */,
 			);
-			path = Tests;
+			name = Tests;
+			path = Tests/DequeTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -662,7 +663,7 @@
 		BBF294541C6B9ED000367934 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = Tests/Info.plist;
+				INFOPLIST_FILE = Tests/DequeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = hu.lorentey.DequeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -672,7 +673,7 @@
 		BBF294551C6B9ED000367934 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = Tests/Info.plist;
+				INFOPLIST_FILE = Tests/DequeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = hu.lorentey.DequeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -727,7 +728,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = Tests/Info.plist;
+				INFOPLIST_FILE = Tests/DequeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = hu.lorentey.DequeTests;
@@ -741,7 +742,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = Tests/Info.plist;
+				INFOPLIST_FILE = Tests/DequeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = hu.lorentey.DequeTests;
@@ -831,7 +832,7 @@
 		BBF294AA1C6BB4FB00367934 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = Tests/Info.plist;
+				INFOPLIST_FILE = Tests/DequeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = hu.lorentey.DequeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -843,7 +844,7 @@
 		BBF294AB1C6BB4FB00367934 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = Tests/Info.plist;
+				INFOPLIST_FILE = Tests/DequeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = hu.lorentey.DequeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
