@@ -236,9 +236,9 @@
 			productReference = BBF294461C6B9ED000367934 /* DequeTests-iOS.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		BBF2945C1C6BA0B600367934 /* Deque-Mac */ = {
+		BBF2945C1C6BA0B600367934 /* Deque-macOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BBF2946E1C6BA0B600367934 /* Build configuration list for PBXNativeTarget "Deque-Mac" */;
+			buildConfigurationList = BBF2946E1C6BA0B600367934 /* Build configuration list for PBXNativeTarget "Deque-macOS" */;
 			buildPhases = (
 				BBF294581C6BA0B600367934 /* Sources */,
 				BBF294591C6BA0B600367934 /* Frameworks */,
@@ -249,7 +249,7 @@
 			);
 			dependencies = (
 			);
-			name = "Deque-Mac";
+			name = "Deque-macOS";
 			productName = Deque;
 			productReference = BBF2945D1C6BA0B600367934 /* Deque.framework */;
 			productType = "com.apple.product-type.framework";
@@ -333,11 +333,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Károly Lőrentey";
 				TargetAttributes = {
 					BBF2943B1C6B9ED000367934 = {
 						CreatedOnToolsVersion = 7.3;
+						ProvisioningStyle = Automatic;
 					};
 					BBF294451C6B9ED000367934 = {
 						CreatedOnToolsVersion = 7.3;
@@ -377,7 +378,7 @@
 			projectRoot = "";
 			targets = (
 				BBF2943B1C6B9ED000367934 /* Deque-iOS */,
-				BBF2945C1C6BA0B600367934 /* Deque-Mac */,
+				BBF2945C1C6BA0B600367934 /* Deque-macOS */,
 				BBF294871C6BB4C900367934 /* Deque-watchOS */,
 				BBF294941C6BB4FB00367934 /* Deque-tvOS */,
 				BBF294451C6B9ED000367934 /* DequeTests-iOS */,
@@ -506,7 +507,7 @@
 		};
 		BBF294691C6BA0B600367934 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = BBF2945C1C6BA0B600367934 /* Deque-Mac */;
+			target = BBF2945C1C6BA0B600367934 /* Deque-macOS */;
 			targetProxy = BBF294681C6BA0B600367934 /* PBXContainerItemProxy */;
 		};
 		BBF294A11C6BB4FB00367934 /* PBXTargetDependency */ = {
@@ -532,8 +533,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
@@ -584,8 +587,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
@@ -619,6 +624,7 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -638,6 +644,7 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -677,7 +684,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
@@ -698,7 +705,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
@@ -749,6 +756,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Sources/Info.plist;
@@ -767,6 +775,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Sources/Info.plist;
@@ -785,6 +794,7 @@
 		BBF294A71C6BB4FB00367934 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Sources/Info.plist;
@@ -802,6 +812,7 @@
 		BBF294A81C6BB4FB00367934 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Sources/Info.plist;
@@ -872,7 +883,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BBF2946E1C6BA0B600367934 /* Build configuration list for PBXNativeTarget "Deque-Mac" */ = {
+		BBF2946E1C6BA0B600367934 /* Build configuration list for PBXNativeTarget "Deque-macOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BBF2946F1C6BA0B600367934 /* Debug */,
