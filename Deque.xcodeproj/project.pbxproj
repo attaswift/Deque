@@ -45,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		BB1C3FF91CA2EA6F004A0FE8 /* version.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = version.xcconfig; sourceTree = "<group>"; };
+		BBB506861DD227A300D0FC8E /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 		BBF2943C1C6B9ED000367934 /* Deque.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Deque.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBF294411C6B9ED000367934 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BBF294461C6B9ED000367934 /* DequeTests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DequeTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -123,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				BBF294B01C6BB6C600367934 /* README.md */,
+				BBB506861DD227A300D0FC8E /* CHANGELOG.md */,
 				BBF294B21C6BB91000367934 /* LICENSE.md */,
 				BBF294B11C6BB8B200367934 /* .travis.yml */,
 				BB1C3FF91CA2EA6F004A0FE8 /* version.xcconfig */,
