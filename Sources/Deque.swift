@@ -93,6 +93,7 @@ extension Deque: RandomAccessCollection, MutableCollection {
     public typealias Index = Int
     public typealias Indices = CountableRange<Int>
     public typealias Iterator = IndexingIterator<Deque<Element>>
+    public typealias SubSequence = RangeReplaceableRandomAccessSlice<Deque<Element>>
 
     /// The number of elements currently stored in this deque.
     public var count: Int { return buffer.count }
@@ -170,9 +171,9 @@ extension Deque: RandomAccessCollection, MutableCollection {
     }
 
     /// Accesses a contiguous subrange of the collection’s elements.
-    public subscript(bounds: Range<Int>) -> RandomAccessSlice<Deque<Element>> {
+    public subscript(bounds: Range<Int>) -> RangeReplaceableRandomAccessSlice<Deque<Element>> {
         get {
-            return RandomAccessSlice(base: self, bounds: bounds)
+            return RangeReplaceableRandomAccessSlice(base: self, bounds: bounds)
         }
         set {
             self.replaceSubrange(bounds, with: newValue)
