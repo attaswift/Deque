@@ -10,7 +10,8 @@ Pod::Spec.new do |spec|
   spec.summary      = 'Double-ended queue type in pure Swift'
   spec.homepage     = 'https://github.com/lorentey/Deque'
   spec.author       = 'Károly Lőrentey'
-  spec.source       = { :git => 'https://github.com/lorentey/Deque.git', :tag => 'v2.0.1' }
+  spec.source       = { :git => 'https://github.com/lorentey/Deque.git',
+                        :tag => 'v' + String(spec.version) }
   spec.source_files = 'Sources/*.swift'
   spec.social_media_url = 'https://twitter.com/lorentey'
 end
