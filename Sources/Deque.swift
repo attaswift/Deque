@@ -93,7 +93,6 @@ extension Deque: RandomAccessCollection, MutableCollection {
     public typealias Index = Int
     public typealias Indices = CountableRange<Int>
     public typealias Iterator = IndexingIterator<Deque<Element>>
-    public typealias SubSequence = RangeReplaceableRandomAccessSlice<Deque<Element>>
 
     /// The number of elements currently stored in this deque.
     public var count: Int { return buffer.count }
