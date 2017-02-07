@@ -1,3 +1,12 @@
+# 3.0.0 (2017-02-07)
+
+This release contains an API-breaking change, so the major version number was bumped. It is, however, very likely that your existing code using Deque will continue to work unchanged.
+
+- The `SubSequence` of `Deque` has been changed from `RandomAccessSlice` to `RangeReplaceableRandomAccessSlice` to adopt newly enforced requirements of `RangeReplaceableCollection`.
+- (Xcode project) The macOS deployment target was set to 10.9.
+- (Xcode project) Code signing was disabled, following Xcode 8 suggestions.
+- (Xcode project) App extensions are now able to link Deque's tvOS framework.
+
 # 2.0.1 (2016-11-08)
 
 This release updates the project for Swift 3.0.1, restoring support for the Swift Package Manager.
