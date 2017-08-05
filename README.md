@@ -1,6 +1,6 @@
 # A Double-Ended Queue Type in Swift
 
-[![Swift 3](https://img.shields.io/badge/Swift-3-blue.svg)](https://swift.org) 
+[![Swift 4](https://img.shields.io/badge/Swift-4-blue.svg)](https://swift.org)
 [![License](https://img.shields.io/badge/licence-MIT-blue.svg)](https://github.com/lorentey/BTree/blob/master/LICENSE.md)
 [![Platform](https://img.shields.io/badge/platforms-OS_X%20∙%20iOS%20∙%20watchOS%20∙%20tvOS-blue.svg)](https://developer.apple.com/platforms/)
 
