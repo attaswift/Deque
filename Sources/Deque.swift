@@ -29,7 +29,7 @@ public struct Deque<Element> {
     }
 
     /// Initialize a new deque from the elements of any sequence.
-    public init<S: Sequence>(_ elements: S) where S.Iterator.Element == Element {
+    public init<S: Sequence>(_ elements: S) where S.Element == Element {
         self.init(minimumCapacity: elements.underestimatedCount)
         append(contentsOf: elements)
     }
@@ -228,7 +228,7 @@ extension Deque: RangeReplaceableCollection {
     ///
     /// - Complexity: O(`range.count`) if storage isn't shared with another live deque,
     ///   and `range` is a constant distance from the start or the end of the deque; otherwise O(`count + range.count`).
-    public mutating func replaceSubrange<C: Collection>(_ range: Range<Int>, with newElements: C) where C.Iterator.Element == Iterator.Element {
+    public mutating func replaceSubrange<C: Collection>(_ range: Range<Int>, with newElements: C) where C.Element == Element {
         precondition(range.lowerBound >= 0 && range.upperBound <= count)
         let newCount: Int = numericCast(newElements.count)
         let delta = newCount - range.count
@@ -244,17 +244,17 @@ extension Deque: RangeReplaceableCollection {
         }
     }
 
-    public mutating func replaceSubrange<C: Collection>(_ range: CountableRange<Int>, with newElements: C) where C.Iterator.Element == Iterator.Element {
+    public mutating func replaceSubrange<C: Collection>(_ range: CountableRange<Int>, with newElements: C) where C.Element == Element {
         // This is also defined as a protocol extension on RangeReplaceableCollection. However, using that extension
         // breaks isUnique, leading to extra COW copies. Providing this overload restores COW behavior in static contexts, at least.
         self.replaceSubrange(Range(range), with: newElements)
     }
-    public mutating func replaceSubrange<C: Collection>(_ range: ClosedRange<Int>, with newElements: C) where C.Iterator.Element == Iterator.Element {
+    public mutating func replaceSubrange<C: Collection>(_ range: ClosedRange<Int>, with newElements: C) where C.Element == Element {
         // This is also defined as a protocol extension on RangeReplaceableCollection. However, using that extension
         // breaks isUnique, leading to extra COW copies. Providing this overload restores COW behavior in static contexts, at least.
         self.replaceSubrange(Range(range), with: newElements)
     }
-    public mutating func replaceSubrange<C: Collection>(_ range: CountableClosedRange<Int>, with newElements: C) where C.Iterator.Element == Iterator.Element {
+    public mutating func replaceSubrange<C: Collection>(_ range: CountableClosedRange<Int>, with newElements: C) where C.Element == Element {
         // This is also defined as a protocol extension on RangeReplaceableCollection. However, using that extension
         // breaks isUnique, leading to extra COW copies. Providing this overload restores COW behavior in static contexts, at least.
         self.replaceSubrange(Range(range), with: newElements)
@@ -278,7 +278,7 @@ extension Deque: RangeReplaceableCollection {
     /// - Parameter newElements: The elements to append to the deque.
     ///
     /// - Complexity: O(*n*), where *n* is the length of the resulting deque.
-    public mutating func append<S: Sequence>(contentsOf newElements: S) where S.Iterator.Element == Element {
+    public mutating func append<S: Sequence>(contentsOf newElements: S) where S.Element == Element {
         makeUnique(self.count + newElements.underestimatedCount)
         var capacity = buffer.capacity
         var count = buffer.count
@@ -313,7 +313,7 @@ extension Deque: RangeReplaceableCollection {
     /// Insert the contents of `newElements` into this deque, starting at index `i`.
     ///
     /// - Complexity: O(`count`). Note though that complexity is O(1) if `i` is of a constant distance from the front or end of the deque.
-    public mutating func insert<C: Collection>(contentsOf newElements: C, at i: Int) where C.Iterator.Element == Element {
+    public mutating func insert<C: Collection>(contentsOf newElements: C, at i: Int) where C.Element == Element {
         makeUnique(grow(count + numericCast(newElements.count)))
         buffer.insert(contentsOf: newElements, at: i)
     }
@@ -736,7 +736,7 @@ final class DequeBuffer<Element> {
         }
     }
 
-    internal func insert<C: Collection>(contentsOf collection: C, at index: Int) where C.Iterator.Element == Element {
+    internal func insert<C: Collection>(contentsOf collection: C, at index: Int) where C.Element == Element {
         assert(index >= 0 && index <= count)
         let c: Int = numericCast(collection.count)
         assert(count + c <= capacity)
@@ -865,7 +865,7 @@ final class DequeBuffer<Element> {
         }
     }
 
-    internal func replaceSubrange<C: Collection>(_ range: Range<Int>, with newElements: C) where C.Iterator.Element == Element {
+    internal func replaceSubrange<C: Collection>(_ range: Range<Int>, with newElements: C) where C.Element == Element {
         let newCount: Int = numericCast(newElements.count)
         let delta = newCount - range.count
         assert(count + delta < capacity)
@@ -952,8 +952,8 @@ extension Deque {
         return result
     }
 
-    public func flatMap<S: Sequence>(_ transform: (Element) throws -> S) rethrows -> [S.Iterator.Element] {
-        var result: [S.Iterator.Element] = []
+    public func flatMap<S: Sequence>(_ transform: (Element) throws -> S) rethrows -> [S.Element] {
+        var result: [S.Element] = []
         try self.forEach {
             result.append(contentsOf: try transform($0))
         }
