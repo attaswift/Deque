@@ -1,3 +1,11 @@
+# 3.1.0 (2017-09-07)
+
+This release updates the project to Swift 4 with no functional changes.
+
+Deque is now part of the Attaswift project. The bundle identifiers in the supplied Xcode project have been updated accordingly.
+
+Note that the URL for the package's Git repository has changed; please update your references.
+
 # 3.0.0 (2017-02-07)
 
 This release contains an API-breaking change, so the major version number was bumped. It is, however, very likely that your existing code using Deque will continue to work unchanged.
