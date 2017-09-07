@@ -650,7 +650,7 @@
 				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = hu.lorentey.Deque.iOS;
+				PRODUCT_BUNDLE_IDENTIFIER = org.attaswift.Deque.iOS;
 				PRODUCT_NAME = Deque;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -670,7 +670,7 @@
 				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = hu.lorentey.Deque.iOS;
+				PRODUCT_BUNDLE_IDENTIFIER = org.attaswift.Deque.iOS;
 				PRODUCT_NAME = Deque;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -683,7 +683,7 @@
 			buildSettings = {
 				INFOPLIST_FILE = Tests/DequeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = hu.lorentey.DequeTests;
+				PRODUCT_BUNDLE_IDENTIFIER = org.attaswift.DequeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 			};
@@ -694,7 +694,7 @@
 			buildSettings = {
 				INFOPLIST_FILE = Tests/DequeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = hu.lorentey.DequeTests;
+				PRODUCT_BUNDLE_IDENTIFIER = org.attaswift.DequeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
@@ -715,7 +715,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				PRODUCT_BUNDLE_IDENTIFIER = hu.lorentey.Deque.Mac;
+				PRODUCT_BUNDLE_IDENTIFIER = org.attaswift.Deque.Mac;
 				PRODUCT_NAME = Deque;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -736,7 +736,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				PRODUCT_BUNDLE_IDENTIFIER = hu.lorentey.Deque.Mac;
+				PRODUCT_BUNDLE_IDENTIFIER = org.attaswift.Deque.Mac;
 				PRODUCT_NAME = Deque;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -751,7 +751,7 @@
 				INFOPLIST_FILE = Tests/DequeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				PRODUCT_BUNDLE_IDENTIFIER = hu.lorentey.DequeTests;
+				PRODUCT_BUNDLE_IDENTIFIER = org.attaswift.DequeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 			};
@@ -764,7 +764,7 @@
 				INFOPLIST_FILE = Tests/DequeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				PRODUCT_BUNDLE_IDENTIFIER = hu.lorentey.DequeTests;
+				PRODUCT_BUNDLE_IDENTIFIER = org.attaswift.DequeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -781,7 +781,7 @@
 				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "hu.lorentey.Deque-watchOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.attaswift.Deque-watchOS";
 				PRODUCT_NAME = Deque;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -800,7 +800,7 @@
 				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "hu.lorentey.Deque-watchOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.attaswift.Deque-watchOS";
 				PRODUCT_NAME = Deque;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -820,7 +820,7 @@
 				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = hu.lorentey.Deque;
+				PRODUCT_BUNDLE_IDENTIFIER = org.attaswift.Deque;
 				PRODUCT_NAME = Deque;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
@@ -839,7 +839,7 @@
 				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = hu.lorentey.Deque;
+				PRODUCT_BUNDLE_IDENTIFIER = org.attaswift.Deque;
 				PRODUCT_NAME = Deque;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
