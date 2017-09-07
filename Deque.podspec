@@ -13,5 +13,5 @@ Pod::Spec.new do |spec|
   spec.source       = { :git => 'https://github.com/attaswift/Deque.git',
                         :tag => 'v' + String(spec.version) }
   spec.source_files = 'Sources/*.swift'
-  spec.social_media_url = 'https://twitter.com/attaswift'
+  spec.social_media_url = 'https://twitter.com/lorentey'
 end
