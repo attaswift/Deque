@@ -4,7 +4,7 @@
 //  Deque
 //
 //  Created by Károly Lőrentey on 2016-02-10.
-//  Copyright © 2016–2017 Károly Lőrentey.
+//  Copyright © 2016–2018 Károly Lőrentey.
 //
 
 import PackageDescription
