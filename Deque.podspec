@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |spec|
   spec.name         = 'Deque'
-  spec.version      = '3.1.0'
+  spec.version      = '3.1.1'
   spec.osx.deployment_target = "10.9"
   spec.ios.deployment_target = "8.0"
   spec.tvos.deployment_target = "9.0"
