@@ -1,3 +1,11 @@
+# 3.1.1 (2018-09-30)
+
+This release updates the project for Swift 4.2 compatibility.
+
+- Disable CountableRange overloads in Swift 4.2 and above (#2, contributed by@kmiloaguilar)
+- Fix typo by renaming removeAll(keepCapacity:) to removeAll(keepingCapacity:). The old name is still available through a deprecated compatibility definition.
+- Fix deprecation warnings emitted by the Swift 4.1 and 4.2 compilers.
+
 # 3.1.0 (2017-09-07)
 
 This release updates the project to Swift 4 with no functional changes.
