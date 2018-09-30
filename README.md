@@ -1,6 +1,6 @@
 # A Double-Ended Queue Type in Swift
 
-[![Swift 4](https://img.shields.io/badge/Swift-4-blue.svg)](https://swift.org)
+[![Swift 4.2](https://img.shields.io/badge/Swift-4.2-blue.svg)](https://swift.org)
 [![License](https://img.shields.io/badge/licence-MIT-blue.svg)](https://github.com/attaswift/BTree/blob/master/LICENSE.md)
 [![Platform](https://img.shields.io/badge/platforms-OS_X%20∙%20iOS%20∙%20watchOS%20∙%20tvOS-blue.svg)](https://developer.apple.com/platforms/)
 
@@ -19,7 +19,7 @@ Deques are structs and implement the same copy-on-write value semantics as stand
 
 ## Compatibility
 
-`Deque` on the `master` branch is compatible with Swift 4.0.
+`Deque` on the `master` branch is compatible with Swift 4.2.
 
 ## Installation
 
@@ -49,7 +49,7 @@ import PackageDescription
 let package = Package(
     name: "MyPackage",
     dependencies: [
-        .Package(url: "https://github.com/attaswift/SipHash.git", from: "3.1.0")
+        .Package(url: "https://github.com/attaswift/SipHash.git", from: "3.1.1")
     ]
 )
 ```
