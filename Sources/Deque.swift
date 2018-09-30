@@ -244,21 +244,29 @@ extension Deque: RangeReplaceableCollection {
         }
     }
 
+    // Code targeting the Swift 4.1 compiler and below
+    #if !(swift(>=4.1.50) || (swift(>=3.4) && !swift(>=4.0)))
     public mutating func replaceSubrange<C: Collection>(_ range: CountableRange<Int>, with newElements: C) where C.Element == Element {
         // This is also defined as a protocol extension on RangeReplaceableCollection. However, using that extension
         // breaks isUnique, leading to extra COW copies. Providing this overload restores COW behavior in static contexts, at least.
         self.replaceSubrange(Range(range), with: newElements)
     }
+    #endif
+
     public mutating func replaceSubrange<C: Collection>(_ range: ClosedRange<Int>, with newElements: C) where C.Element == Element {
         // This is also defined as a protocol extension on RangeReplaceableCollection. However, using that extension
         // breaks isUnique, leading to extra COW copies. Providing this overload restores COW behavior in static contexts, at least.
         self.replaceSubrange(Range(range), with: newElements)
     }
+
+    // Code targeting the Swift 4.1 compiler and below
+    #if !(swift(>=4.1.50) || (swift(>=3.4) && !swift(>=4.0)))
     public mutating func replaceSubrange<C: Collection>(_ range: CountableClosedRange<Int>, with newElements: C) where C.Element == Element {
         // This is also defined as a protocol extension on RangeReplaceableCollection. However, using that extension
         // breaks isUnique, leading to extra COW copies. Providing this overload restores COW behavior in static contexts, at least.
         self.replaceSubrange(Range(range), with: newElements)
     }
+    #endif
 
     /// Append `newElement` to the end of this deque.
     ///
