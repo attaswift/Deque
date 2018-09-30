@@ -93,6 +93,11 @@ extension Deque: RandomAccessCollection, MutableCollection {
     public typealias Index = Int
     public typealias Indices = CountableRange<Int>
     public typealias Iterator = IndexingIterator<Deque<Element>>
+    #if swift(>=4.1) || (swift(>=3.3) && !swift(>=4.0))
+    public typealias SubSequence = Slice<Deque<Element>>
+    #else
+    public typealias SubSequence = RangeReplaceableRandomAccessSlice<Deque<Element>>
+    #endif
 
     /// The number of elements currently stored in this deque.
     public var count: Int { return buffer.count }
@@ -170,9 +175,9 @@ extension Deque: RandomAccessCollection, MutableCollection {
     }
 
     /// Accesses a contiguous subrange of the collection’s elements.
-    public subscript(bounds: Range<Int>) -> RangeReplaceableRandomAccessSlice<Deque<Element>> {
+    public subscript(bounds: Range<Int>) -> SubSequence {
         get {
-            return RangeReplaceableRandomAccessSlice(base: self, bounds: bounds)
+            return SubSequence(base: self, bounds: bounds)
         }
         set {
             self.replaceSubrange(bounds, with: newValue)
@@ -503,7 +508,11 @@ final class DequeBuffer<Element> {
             p.advanced(by: start).deinitialize(count: c)
             p.deinitialize(count: count - c)
         }
+        #if swift(>=4.1) || (swift(>=3.3) && !swift(>=4.0))
+        p.deallocate()
+        #else
         p.deallocate(capacity: capacity)
+        #endif
     }
 
     internal func realloc(_ capacity: Int) -> DequeBuffer {

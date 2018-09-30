@@ -210,8 +210,10 @@ class DequeTests: XCTestCase {
         deque.replaceSubrange(0...3, with: [10, 11, 12, 13, 14])
         XCTAssertElementsEqual(deque, [10, 11, 12, 13, 14, 5])
 
+        #if !(swift(>=4.1) || (swift(>=3.3) && !swift(>=4.0)))
         deque.replaceSubrange(ClosedRange(0...3), with: [20, 21, 22])
         XCTAssertElementsEqual(deque, [20, 21, 22, 14, 5])
+        #endif
 
         XCTAssertElementsEqual(deque2, [1, 7, 3, 2, 6, 5, 4])
     }
@@ -406,7 +408,7 @@ class DequeTests: XCTestCase {
         let deque2 = deque
 
         let capacity = deque.capacity
-        deque.removeAll(keepCapacity: true)
+        deque.removeAll(keepingCapacity: true)
         XCTAssertElementsEqual(deque, [])
         XCTAssertEqual(deque.capacity, capacity)
 
@@ -421,6 +423,19 @@ class DequeTests: XCTestCase {
         deque.removeAll()
         XCTAssertElementsEqual(deque, [])
         XCTAssertLessThan(deque.capacity, capacity)
+
+        XCTAssertElementsEqual(deque2, (0 ..< 1000).map { T($0) })
+    }
+
+    @available(*, deprecated)
+    func testDeprecatedRemoveAllKeepCapacity() {
+        var deque = Deque<T>((0 ..< 1000).map { T($0) })
+        let deque2 = deque
+
+        let capacity = deque.capacity
+        deque.removeAll(keepCapacity: true)
+        XCTAssertElementsEqual(deque, [])
+        XCTAssertEqual(deque.capacity, capacity)
 
         XCTAssertElementsEqual(deque2, (0 ..< 1000).map { T($0) })
     }
