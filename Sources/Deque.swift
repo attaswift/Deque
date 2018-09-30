@@ -369,10 +369,15 @@ extension Deque: RangeReplaceableCollection {
         buffer.removeSubrange(range)
     }
 
+    @available(*, deprecated, renamed: "removeAll(keepingCapacity:)")
+    public mutating func removeAll(keepCapacity: Bool) {
+        self.removeAll(keepingCapacity: keepCapacity)
+    }
+
     /// Remove all elements from this deque.
     ///
     /// - Complexity: O(`count`).
-    public mutating func removeAll(keepCapacity: Bool = false) {
+    public mutating func removeAll(keepingCapacity keepCapacity: Bool = false) {
         makeUnique()
         if keepCapacity {
             buffer.removeSubrange(0..<count)
