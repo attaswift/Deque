@@ -1,5 +1,5 @@
 language: objective-c
-osx_image: xcode9
+osx_image: xcode10
 script:
 - swift test
 - xcrun xcodebuild -project Deque.xcodeproj -scheme Deque-macOS test
