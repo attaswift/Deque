@@ -11,6 +11,10 @@
 [![CocoaPod Version](https://img.shields.io/cocoapods/v/Deque.svg)](http://cocoapods.org/pods/Deque)
 
 
+| :warning: WARNING          |
+|:---------------------------|
+| This package has been obsoleted by the [`Deque` type](https://github.com/apple/swift-collections/blob/main/Documentation/Deque.md) in the [Swift Collections package](https://github.com/apple/swift-collections). Using this older package in not recommended in new Swift code; I expect the double-ended queue implementation in Swift Collections to perform better and to provide a richer interface. It is also being actively maintained/updated by the Swift Standard Library team.|
+
 `Deque<Element>` implements a double-ended queue type.
 It's an `Array`-like random-access collection of arbitrary elements that provides efficient O(1) insertion and deletion at both ends.
 
