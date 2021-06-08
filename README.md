@@ -53,7 +53,7 @@ import PackageDescription
 let package = Package(
     name: "MyPackage",
     dependencies: [
-        .Package(url: "https://github.com/attaswift/SipHash.git", from: "3.1.1")
+        .Package(url: "https://github.com/attaswift/Deque.git", from: "3.1.1")
     ]
 )
 ```
